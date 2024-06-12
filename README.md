@@ -26,9 +26,9 @@
 
 1. Clone both backend and front-end repositories.
 
-   - [**Backend**](https://github.com/Fatema-J/MealMind-backend?tab=readme-ov-file)<br>
+   - [**Backend**](https://github.com/Fatema-J/MealMind-backend?tab=readme-ov-file) repository<br>
      `git@github.com:Fatema-J/MealMind-backend.git`
-   - Frontend<br>
+   - **Frontend** repository<br>
      `git@github.com:-----/project3-frontend.git`
 
 2. Install dependencies for each app (`npm install`).
@@ -55,6 +55,7 @@
 - [Link to deployed site]
 - [Trello board](https://trello.com/b/eIbm4xlp/mealmind)
 - Screenshots:
+
   ![Welcome Page](./images/MealMind%20UI.png)
   ![Login Page](./images/MealMind%20Login%20UI.png)
 
