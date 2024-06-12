@@ -1,3 +1,17 @@
 body {
   margin: 0;
 }
+
+.feed{
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10%
+}
+
+.home-guest{
+  display: flex;
+  justify-content: space-around;
+  margin: 10%
+}
