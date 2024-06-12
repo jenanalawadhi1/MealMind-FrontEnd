@@ -31,7 +31,7 @@ const Home = () => {
     // Login btn
     <div className="home-guest">
       <div>
-        <h1 className="home-text">Let’s Begin Your Diet Planning</h1>
+        <h1 className="home-text">Let's Begin Your Diet Planning</h1>
         <p>Choose what's good for you</p>
         <div className="button">Get Started</div>
       </div>
