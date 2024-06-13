@@ -4,6 +4,7 @@ import { RegisterUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
+  let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     firstName: '',
     lastName: '',
@@ -11,7 +12,7 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   })
-  let navigate = useNavigate()
+
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
@@ -33,7 +34,6 @@ const Register = () => {
     })
     navigate('/login')
   }
-
 
   return (
     <div className="login col">

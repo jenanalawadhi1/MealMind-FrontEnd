@@ -10,15 +10,23 @@ import ShowPlan from './pages/ShowPlan'
 import MyPlans from './pages/MyPlans'
 
 const App = () => {
+  const [user, setUser] = useState(null)
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setUser(null)
+    localStorage.clear()
+  }
+
   return (
-    <div>
-      <Nav />
-      <ShowPlan/>
+    <div className="App">
+      <Nav user={user} handleLogOut={handleLogOut} />
+      <ShowPlan />
       <main>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home user={user}/>} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/plans/:id" element={<ShowPlan />} />
         </Routes>

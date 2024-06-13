@@ -1,6 +1,10 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { LoginUser } from '../services/Auth'
 
-const Login = () => {
+const Login = ({ setUser }) => {
+  let navigate = useNavigate()
+  
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
@@ -9,6 +13,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const payload = await LoginUser(formValues)
+    setFormValues({ email: '', password: '' })
+    setUser(payload)
+    navigate('/home')
   }
 
   return (
