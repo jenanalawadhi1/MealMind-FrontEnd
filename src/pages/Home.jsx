@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+// import { AuthContext } from '../context/UserContext'
 import ViewPost from '../components/ViewPost'
 
 const Home = () => {
+ 
   // const { user } = useContext(AuthContext)
 
   //tempo
@@ -67,7 +71,12 @@ const Home = () => {
   return user ? (
     <div className="feed">
       {posts.map((post) => (
-        <ViewPost key={post.id} className="feed-post" post={post}/>
+        <div key={post.id} className="feed-post">
+          <h3>Published By {post.name}</h3>
+          <h3>{post.title}</h3>
+          <p>{post.caption}</p>
+          <div className="button">Read More</div>
+        </div>
       ))}
     </div>
   ) : (
@@ -78,7 +87,7 @@ const Home = () => {
       <div>
         <h1 className="home-text">Let's Begin Your Diet Planning</h1>
         <p>Choose what's good for you</p>
-        <div className="button">Get Started</div>
+        <button onClick={() => navigate('/login')}>Get Started</button>
       </div>
       <img src="../../images/imageholder.jpg" alt="healthy girl picture" />
     </div>
