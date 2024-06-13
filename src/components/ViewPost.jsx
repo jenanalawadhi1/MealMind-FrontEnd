@@ -15,6 +15,7 @@ const ViewPost = ({ post }) => {
             <p>{comment.comment}</p>
           </div>
         ))}
+        {/* add comment */}
       </details>
     </div>
   )

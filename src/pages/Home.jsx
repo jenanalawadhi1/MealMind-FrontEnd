@@ -1,12 +1,15 @@
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 // import { AuthContext } from '../context/UserContext'
 import ViewPost from '../components/ViewPost'
 
 const Home = () => {
- 
+  
   // const { user } = useContext(AuthContext)
 
+  useEffect(() =>{
+    GetPosts
+  })
   //tempo
   const user = true
   const posts = [
