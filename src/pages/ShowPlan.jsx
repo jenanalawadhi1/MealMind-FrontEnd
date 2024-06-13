@@ -1,6 +1,10 @@
+import { useState } from 'react'
+import CreatePost from '../components/CreatePost'
+
 const ShowPlan = () => {
   // tempo
   const plan = {
+    _id: 1,
     planName: 'Weight Loss Program',
     planDescription: [
       {
@@ -76,7 +80,7 @@ const ShowPlan = () => {
     __v: 0
   }
   //
-  
+
   return (
     <div className="plan">
       <h1>Meal Plan</h1>
@@ -96,6 +100,7 @@ const ShowPlan = () => {
           <p>{day.dinner}</p>
         </details>
       ))}
+      <CreatePost id={plan._id}/>
     </div>
   )
 }
