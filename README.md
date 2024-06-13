@@ -1,14 +1,16 @@
-# MealMind 🥗🍛
+# MealMind Backend🥗🍛
 
 ### Team Members
 
-- Fatema Aljonaid - [Github](https://github.com/Fatema-J)
-- Hawraa Alattar - [Github](https://github.com/hawraalattar)
-- Jenan Alawadhi - [Github](https://github.com/jenanalawadhi1)
+- Fatema Aljonaid - [Github](https://github.com/Fatema-J) | [Linkedin](https://www.linkedin.com/in/fatema-aljonaid/)
+- Hawraa Alattar - [Github](https://github.com/hawraalattar) | [Linkedin](https://www.linkedin.com/in/hawraalattar/)
+- Jenan Alawadhi - [Github](https://github.com/jenanalawadhi1) | [Linkedin](https://www.linkedin.com/in/jenan-alawadhi/)
 
 ---
 
 ### Overview
+
+![MealMind Logo](./images/logo.jpg)
 
 **_MealMind_** is an innovative web application designed to create personalized diet plans for users. By leveraging artificial intelligence, the app tailors meal recommendations based on user responses to a questionnaire. Whether you’re aiming for weight loss, muscle gain, or overall health improvement, our app has you covered.
 
@@ -24,17 +26,22 @@
 
 ### Getting Started
 
-1. Clone both backend and front-end repositories.
-
-   - [**Backend**](https://github.com/Fatema-J/MealMind-backend?tab=readme-ov-file) repository<br>
-     `git@github.com:Fatema-J/MealMind-backend.git`
-   - **Frontend** repository<br>
-     `git@github.com:-----/project3-frontend.git`
-
+1. Clone both [backend](https://github.com/Fatema-J/MealMind-backend) and [frontend](https://github.com/jenanalawadhi1/MealMind-FrontEnd) repositories.
+   - `git@github.com:Fatema-J/MealMind-backend.git`
+   - `git@github.com:jenanalawadhi1/MealMind-FrontEnd.git`
 2. Install dependencies for each app (`npm install`).
 3. Set up your MongoDB database.
-4. Run the front-end and back-end servers.
-5. Access the app locally.
+4. Create .env file in the backend repository contains these varaibles
+
+```
+MONGODB_URI=<connection to mongodb>
+APP_SECRET=<random String>
+SALT_ROUNDS=<Number>
+GROQ_API_KEY=<api key for groq>
+```
+
+5. Run the front-end and back-end servers.
+6. Access the app locally.
 
 ---
 
@@ -55,7 +62,6 @@
 - [Link to deployed site]
 - [Trello board](https://trello.com/b/eIbm4xlp/mealmind)
 - Screenshots:
-
   ![Welcome Page](./images/MealMind%20UI.png)
   ![Login Page](./images/MealMind%20Login%20UI.png)
 
@@ -71,5 +77,5 @@
 
 ### Credits
 
-- [Canva](https://www.bing.com/ck/a?!&&p=aef92d480c5cf9d0JmltdHM9MTcxODA2NDAwMCZpZ3VpZD0zYTE5Y2MyMS01M2M3LTY5YjctMjkzOC1kODQ5NTI2OTY4NmQmaW5zaWQ9NTIxMA&ptn=3&ver=2&hsh=3&fclid=3a19cc21-53c7-69b7-2938-d8495269686d&psq=canva&u=a1aHR0cHM6Ly93d3cuY2FudmEuY29tLz9tc29ja2lkPTNhMTljYzIxNTNjNzY5YjcyOTM4ZDg0OTUyNjk2ODZk&ntb=1)
-- [Trello](https://www.bing.com/ck/a?!&&p=dfd9de995f4c3454JmltdHM9MTcxODA2NDAwMCZpZ3VpZD0zYTE5Y2MyMS01M2M3LTY5YjctMjkzOC1kODQ5NTI2OTY4NmQmaW5zaWQ9NTIwMA&ptn=3&ver=2&hsh=3&fclid=3a19cc21-53c7-69b7-2938-d8495269686d&psq=trello&u=a1aHR0cHM6Ly90cmVsbG8uY29tLw&ntb=1)
+- [chatgpt](https://chatgpt.com/) to engineer our prompts for the API
+- [groq](https://groq.com/) the AI api to generate customized plans
