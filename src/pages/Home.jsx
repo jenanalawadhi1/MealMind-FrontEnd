@@ -4,7 +4,6 @@ import { useContext } from 'react'
 import ViewPost from '../components/ViewPost'
 
 const Home = () => {
- 
   // const { user } = useContext(AuthContext)
 
   //tempo
