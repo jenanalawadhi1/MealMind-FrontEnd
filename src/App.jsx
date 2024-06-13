@@ -4,7 +4,7 @@ import ShowPlan from './pages/ShowPlan'
 
 const App = () => {
   return <div>
-    <ShowPlan/>
+    <Home/>
   </div>
 }
 
