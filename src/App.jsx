@@ -8,10 +8,14 @@ import Home from './pages/Home'
 import ShowPlan from './pages/ShowPlan'
 import StartPlan from './pages/StartPlan'
 
+import MyPlans from './pages/MyPlans'
+
+
 const App = () => {
   return (
     <div>
       <Nav />
+      <ShowPlan/>
       <main>
         <Routes>
           <Route path="/about" element={<About />} />

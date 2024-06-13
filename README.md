@@ -70,8 +70,10 @@ GROQ_API_KEY=<api key for groq>
 ### Additional Features
 
 - [ ] Dark Theme
-- [ ] Different plan categories (Vegan, Keto, Gluten-free.. etc)
+- [x] Different plan categories (Vegan, Keto, Gluten-free.. etc)
 - [ ] Upload image for the post
+- [ ] Random picture for plans
+- [ ] Selection units Kg/Pounds
 
 ---
 
