@@ -6,7 +6,10 @@ import Register from './components/Register'
 import './App.css'
 import Home from './pages/Home'
 import ShowPlan from './pages/ShowPlan'
+import StartPlan from './pages/StartPlan'
+
 import MyPlans from './pages/MyPlans'
+
 
 const App = () => {
   return (
@@ -20,6 +23,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/plans/:id" element={<ShowPlan />} />
+          <Route path="/plans/new" element={<StartPlan />} />
         </Routes>
       </main>
     </div>
