@@ -1,3 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+// import { AuthContext } from '../context/UserContext'
+
 const Home = () => {
   // const { user } = useContext(AuthContext)
 
@@ -36,7 +40,7 @@ const Home = () => {
       <div>
         <h1 className="home-text">Let's Begin Your Diet Planning</h1>
         <p>Choose what's good for you</p>
-        <div className="button">Get Started</div>
+        <button onClick={() => navigate('/login')}>Get Started</button>
       </div>
       <img src="../../images/imageholder.jpg" alt="healthy girl picture" />
     </div>
