@@ -1,11 +1,9 @@
-// Case1: Login page if there's no user available
-
-// Case2: TestForm to get the new plan if user logged in
 import { useState } from 'react'
 import questions from '../../questions'
+import Login from '../components/Login'
 import TestForm from '../components/TestForm'
 
-const StartPlan = () => {
+const StartPlan = ({ user }) => {
   const initialResponses = Array(questions.length).fill('')
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [responses, setResponses] = useState(initialResponses)
@@ -102,7 +100,9 @@ const StartPlan = () => {
     }))
   }
 
-  return (
+  // Case 1: user logged in
+  // TestForm to get the new plan
+  return user ? (
     <div>
       <TestForm
         currentQuestionIndex={currentQuestionIndex}
@@ -120,6 +120,12 @@ const StartPlan = () => {
         handleBack={handleBack}
         handleDone={handleDone}
       />
+    </div>
+  ) : (
+    // Case 2: If user logged Out
+    // Login
+    <div>
+      <Login />
     </div>
   )
 }
