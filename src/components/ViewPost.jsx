@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-const ViewPost = () => {
+const ViewPost = ({post}) => {
   let { id } = useParams()
 
   return (
