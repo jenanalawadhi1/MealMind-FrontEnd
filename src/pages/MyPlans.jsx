@@ -1,5 +1,4 @@
 // view plans
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const MyPlans = () => {
@@ -11,7 +10,7 @@ const MyPlans = () => {
 
   let navigate = useNavigate()
 
-  const onClick = (id) =>{
+  const onClick = (id) => {
     navigate(`/plans/${id}`)
   }
 
@@ -20,7 +19,9 @@ const MyPlans = () => {
       {plans.map((plan) => (
         <div key={plan.id}>
           <h3>{plan.planName}</h3>
-          <div className="button" onClick={onClick}>Read More</div>
+          <div className="button" onClick={onClick}>
+            Read More
+          </div>
         </div>
       ))}
     </div>

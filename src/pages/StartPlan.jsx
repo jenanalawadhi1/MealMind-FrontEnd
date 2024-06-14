@@ -7,25 +7,33 @@ import questions from '../../questions'
 const StartPlan = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [responses, setResponses] = useState(Array(questions.length).fill(''))
+  const [validationMessage, setValidationMessage] = useState('')
+  const [units, setUnits] = useState({ weight: 'kg', height: 'cm' })
+  const [otherResponses, setOtherResponses] = useState(
+    Array(questions.length).fill('')
+  )
 
   const handleNext = () => {
     if (responses[currentQuestionIndex] !== '') {
+      setValidationMessage('')
       setCurrentQuestionIndex(currentQuestionIndex + 1)
     } else {
-      alert('Please answer the question before proceeding.')
+      setValidationMessage('Please answer the question before proceeding.')
     }
   }
 
   const handleBack = () => {
+    setValidationMessage('')
     setCurrentQuestionIndex(currentQuestionIndex - 1)
   }
 
   const handleDone = () => {
     if (responses[currentQuestionIndex] !== '') {
+      setValidationMessage('')
       alert('Form submitted successfully!')
       // Here you can handle the form submission, e.g., send responses to a server
     } else {
-      alert('Please answer the question before proceeding.')
+      setValidationMessage('Please answer the question before proceeding.')
     }
   }
 
@@ -35,6 +43,39 @@ const StartPlan = () => {
     setResponses(newResponses)
   }
 
+  const handleCheckboxChange = (event) => {
+    const newResponses = [...responses]
+    const value = event.target.value
+    const currentResponses = newResponses[currentQuestionIndex] || []
+    if (event.target.checked) {
+      newResponses[currentQuestionIndex] = [...currentResponses, value]
+    } else {
+      newResponses[currentQuestionIndex] = currentResponses.filter(
+        (response) => response !== value
+      )
+    }
+    setResponses(newResponses)
+  }
+
+  const handleRadioChange = (event) => {
+    const newResponses = [...responses]
+    newResponses[currentQuestionIndex] = [event.target.value]
+    setResponses(newResponses)
+  }
+
+  const handleOtherChange = (event) => {
+    const newOtherResponses = [...otherResponses]
+    newOtherResponses[currentQuestionIndex] = event.target.value
+    setOtherResponses(newOtherResponses)
+  }
+
+  const handleUnitChange = (question, event) => {
+    setUnits((prevUnits) => ({
+      ...prevUnits,
+      [question]: event.target.value
+    }))
+  }
+
   const currentQuestion = questions[currentQuestionIndex]
 
   return (
@@ -42,34 +83,104 @@ const StartPlan = () => {
       <div>
         <label>{currentQuestion.content}</label>
         {currentQuestion.options.length > 0 ? (
-          currentQuestion.content.includes('Check all that apply') ? (
-            currentQuestion.options.map((option, index) => (
-              <div key={index}>
-                <input
-                  type="checkbox"
-                  id={`${currentQuestion.id}-${index}`}
-                  name={currentQuestion.content}
-                  value={option}
-                  onChange={handleChange}
-                />
-                <label htmlFor={`${currentQuestion.id}-${index}`}>
-                  {option}
-                </label>
-              </div>
-            ))
+          currentQuestion.content ===
+          'Do you have any medical conditions we should consider?' ? (
+            <div>
+              {currentQuestion.options.map((option, index) => (
+                <div key={index}>
+                  <input
+                    type="checkbox"
+                    id={`${currentQuestion.id}-${index}`}
+                    name={currentQuestion.content}
+                    value={option}
+                    checked={(responses[currentQuestionIndex] || []).includes(
+                      option
+                    )}
+                    onChange={handleCheckboxChange}
+                  />
+                  <label htmlFor={`${currentQuestion.id}-${index}`}>
+                    {option}
+                  </label>
+                  {option === 'Other (please specify)' &&
+                    (responses[currentQuestionIndex] || []).includes(
+                      option
+                    ) && (
+                      <input
+                        type="text"
+                        value={otherResponses[currentQuestionIndex] || ''}
+                        onChange={handleOtherChange}
+                        placeholder="Please specify"
+                      />
+                    )}
+                </div>
+              ))}
+            </div>
           ) : (
-            <select
+            <div>
+              {currentQuestion.options.map((option, index) => (
+                <div key={index}>
+                  <input
+                    type="radio"
+                    id={`${currentQuestion.id}-${index}`}
+                    name={currentQuestion.content}
+                    value={option}
+                    checked={
+                      (responses[currentQuestionIndex] || [])[0] === option
+                    }
+                    onChange={handleRadioChange}
+                  />
+                  <label htmlFor={`${currentQuestion.id}-${index}`}>
+                    {option}
+                  </label>
+                  {option === 'Other (please specify)' &&
+                    (responses[currentQuestionIndex] || [])[0] === option && (
+                      <input
+                        type="text"
+                        value={otherResponses[currentQuestionIndex] || ''}
+                        onChange={handleOtherChange}
+                        placeholder="Please specify"
+                      />
+                    )}
+                </div>
+              ))}
+            </div>
+          )
+        ) : currentQuestion.content.includes('Weight') ? (
+          <div>
+            <input
+              type="number"
               value={responses[currentQuestionIndex]}
               onChange={handleChange}
-            >
-              <option value="">Select an option</option>
-              {currentQuestion.options.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          )
+              placeholder={`Enter weight in ${units.weight}`}
+            />
+            <div>
+              <select
+                value={units.weight}
+                onChange={(e) => handleUnitChange('weight', e)}
+              >
+                <option value="kg">kg</option>
+                <option value="lbs">lbs</option>
+              </select>
+            </div>
+          </div>
+        ) : currentQuestion.content.includes('Height') ? (
+          <div>
+            <input
+              type="number"
+              value={responses[currentQuestionIndex]}
+              onChange={handleChange}
+              placeholder={`Enter height in ${units.height}`}
+            />
+            <div>
+              <select
+                value={units.height}
+                onChange={(e) => handleUnitChange('height', e)}
+              >
+                <option value="cm">cm</option>
+                <option value="ft">ft</option>
+              </select>
+            </div>
+          </div>
         ) : currentQuestion.content === 'Date of Birth:' ? (
           <input
             type="date"
@@ -88,6 +199,7 @@ const StartPlan = () => {
           />
         )}
       </div>
+      {validationMessage && <p style={{ color: 'red' }}>{validationMessage}</p>}
       <div>
         {currentQuestionIndex > 0 && (
           <button type="button" onClick={handleBack}>
