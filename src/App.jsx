@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes } from 'react-router'
-import { CheckSession } from './services/Auth'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import { CheckSession } from './services/Auth'
 import About from './pages/About'
-import Nav from './components/Nav'
-import Login from './components/Login'
-import ViewPost from './components/ViewPost'
-import Register from './components/Register'
 import Home from './pages/Home'
 import ShowPlan from './pages/ShowPlan'
 import StartPlan from './pages/StartPlan'
-
-import MyPlans from './pages/MyPlans'
+import ViewPost from './components/ViewPost'
+import Nav from './components/Nav'
+import Login from './components/Login'
+import Register from './components/Register'
 
 const App = () => {
   const [user, setUser] = useState(null)
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
 
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
@@ -22,22 +25,17 @@ const App = () => {
     localStorage.clear()
   }
 
-  const checkToken = async () => {
-    const user = await CheckSession()
-    setUser(user)
-  }
-
   useEffect(() => {
     const token = localStorage.getItem('token')
+    // Check if token exists before requesting to validate the token
     if (token) {
       checkToken()
     }
   }, [])
 
   return (
-    <div className="App">
-      <Nav user={user} handleLogOut={handleLogOut} />
-      <ShowPlan />
+    <div>
+      <Nav />
       <main>
         <Routes>
           <Route path="/about" element={<About />} />
@@ -46,7 +44,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/viewpost" element={<ViewPost />} />
           <Route path="/plans/:id" element={<ShowPlan />} />
-          <Route path="/plans/new" element={<StartPlan />} />
+          <Route path="/plans/new" element={<StartPlan user={user} />} />
+          <Route path="/posts/:id" element={<ViewPost />} />
         </Routes>
       </main>
     </div>

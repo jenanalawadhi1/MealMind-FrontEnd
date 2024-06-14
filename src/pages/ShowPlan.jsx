@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import CreatePost from '../components/CreatePost'
 
 const ShowPlan = () => {
@@ -100,7 +99,7 @@ const ShowPlan = () => {
           <p>{day.dinner}</p>
         </details>
       ))}
-      <CreatePost id={plan._id}/>
+      <CreatePost id={plan._id} />
     </div>
   )
 }

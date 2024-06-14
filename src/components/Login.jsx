@@ -4,7 +4,7 @@ import { LoginUser } from '../services/Auth'
 
 const Login = ({ setUser }) => {
   let navigate = useNavigate()
-  
+
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ const Login = ({ setUser }) => {
     const payload = await LoginUser(formValues)
     setFormValues({ email: '', password: '' })
     setUser(payload)
-    navigate('/home')
+    navigate('/')
   }
 
   return (
