@@ -1,4 +1,8 @@
-const ViewPost = ({ post }) => {
+import { useParams } from 'react-router-dom'
+
+const ViewPost = () => {
+  let { id } = useParams()
+
   return (
     <div>
       <h3>Published By {post.name}</h3>
@@ -15,6 +19,7 @@ const ViewPost = ({ post }) => {
             <p>{comment.comment}</p>
           </div>
         ))}
+        {/* add comment */}
       </details>
     </div>
   )
