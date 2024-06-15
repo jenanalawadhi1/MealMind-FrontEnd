@@ -1,4 +1,4 @@
-# MealMind Backend🥗🍛
+# MealMind Frontend🥗🍛
 
 ### Team Members
 
