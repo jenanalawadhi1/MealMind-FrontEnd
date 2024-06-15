@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState } from 'react'
+import { CreateNewPost } from '../services/PostServices'
 
-
-const CreatePost = ({id}) => {
+// ShowPlan is the parent
+const CreatePost = ({ planId, userId }) => {
   const [formValues, setFormValues] = useState({
     title: '',
     caption: ''
@@ -14,8 +15,10 @@ const CreatePost = ({id}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('id: ', id)
+    //post id
+    console.log('plan id: ', planId, 'user id: ', userId)
     // create new post using planID
+    CreateNewPost({ ...formValues, user: userId, plan: planId })
     setFormValues({
       title: '',
       caption: ''

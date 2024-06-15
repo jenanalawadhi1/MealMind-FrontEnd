@@ -6,6 +6,7 @@ import About from './pages/About'
 import Home from './pages/Home'
 import ShowPlan from './pages/ShowPlan'
 import StartPlan from './pages/StartPlan'
+import MyPlans from './pages/MyPlans'
 import ViewPost from './components/ViewPost'
 import Nav from './components/Nav'
 import Login from './components/Login'
@@ -42,8 +43,9 @@ const App = () => {
           <Route path="/" element={<Home user={user} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/plans/:id" element={<ShowPlan />} />
-          <Route path="/plans/new" element={<StartPlan user={user} />} />
+          <Route path="/plans" element={<MyPlans />} />
+          <Route path="/plans/:id" element={<ShowPlan user={user} />} />
+          <Route path="/plans/new" element={<StartPlan />} />
           <Route path="/posts/:id" element={<ViewPost />} />
         </Routes>
       </main>
