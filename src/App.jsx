@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <div>
-      <Nav />
+      <Nav user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
           <Route path="/about" element={<About />} />
