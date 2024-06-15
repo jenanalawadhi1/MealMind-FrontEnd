@@ -10,9 +10,9 @@ export const GetPosts = async () => {
   }
 }
 
-export const CreateNewPost = async () => {
+export const CreateNewPost = async (data) => {
   try {
-    const res = await Client.post('/posts')
+    const res = await Client.post('/posts', data)
     console.log(res.data);
     return res.data
   } catch (error) {
