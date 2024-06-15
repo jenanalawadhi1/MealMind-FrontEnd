@@ -102,7 +102,7 @@ const StartPlan = ({ user }) => {
 
   // Case 1: user logged in
   // TestForm to get the new plan
-  return user ? (
+  return (
     <div>
       <TestForm
         currentQuestionIndex={currentQuestionIndex}
@@ -121,12 +121,12 @@ const StartPlan = ({ user }) => {
         handleDone={handleDone}
       />
     </div>
-  ) : (
-    // Case 2: If user logged Out
-    // Login
-    <div>
-      <Login />
-    </div>
+    // ) : (
+    //   // Case 2: If user logged Out
+    //   // Login
+    //   <div>
+    //     <Login />
+    //   </div>
   )
 }
 
