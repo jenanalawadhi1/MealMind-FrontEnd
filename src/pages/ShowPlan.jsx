@@ -1,9 +1,16 @@
+import { useParams } from 'react-router-dom'
 import CreatePost from '../components/CreatePost'
 
-const ShowPlan = () => {
+// MyPlans is the parent
+const ShowPlan = ({ user }) => {
+  console.log(user)
+  //should get the plan from the id
+  // {id} = useParams()
+  // getPlan()
+
   // tempo
   const plan = {
-    _id: 1,
+    _id: '66696a2ec18241628dd19f77',
     planName: 'Weight Loss Program',
     planDescription: [
       {
@@ -99,7 +106,7 @@ const ShowPlan = () => {
           <p>{day.dinner}</p>
         </details>
       ))}
-      <CreatePost id={plan._id} />
+      <CreatePost planId={plan._id} userId={user._id} />
     </div>
   )
 }
