@@ -72,33 +72,37 @@ select[value='Other (please specify)'] {
   border-color: #ff99a6;
 }
 
+.validation-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px;
 }
 
 button[type='button'] {
   background-color: #ff99a6;
   color: white;
-  align-self: flex-start;
 }
 
 button[type='submit'] {
   background-color: #ff4c61;
   color: white;
-  align-self: flex-end;
 }
 
 button[type='button']:hover,
 button[type='submit']:hover {
   background-color: #ff1f3a;
-}
-
-button[type='button']:nth-child(1) {
-  margin-right: auto;
 }
 
 .feed {
