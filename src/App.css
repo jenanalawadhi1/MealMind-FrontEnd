@@ -4,7 +4,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa;
+  background-image: url('../images/background.png');
+  background-repeat: no-repeat;
 }
 
 .form-container {
