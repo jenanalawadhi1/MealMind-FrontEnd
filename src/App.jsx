@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/" element={<Home user={user} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/plans" element={<MyPlans />} />
+          <Route path="/plans" element={<MyPlans user={user} />} />
           <Route path="/plans/:id" element={<ShowPlan user={user} />} />
           <Route path="/plans/new" element={<StartPlan />} />
           <Route path="/posts/:id" element={<ViewPost />} />
