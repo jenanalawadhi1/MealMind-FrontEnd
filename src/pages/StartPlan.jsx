@@ -130,7 +130,7 @@ const StartPlan = () => {
   // Case 1: user logged in
   // TestForm to get the new plan
   return (
-    <div>
+    <div className="form-container">
       <TestForm
         currentQuestionIndex={currentQuestionIndex}
         questions={questions}
