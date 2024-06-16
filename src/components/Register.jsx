@@ -1,7 +1,7 @@
 // Will show the user registeriation
 import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Register = () => {
   const [formValues, setFormValues] = useState({
@@ -33,7 +33,6 @@ const Register = () => {
     })
     navigate('/login')
   }
-
 
   return (
     <div className="login col">
@@ -103,6 +102,11 @@ const Register = () => {
             Login
           </button>
         </form>
+      </div>
+      <div>
+        <p>
+          Alraedy have an account? <Link to="/login">Log In</Link>{' '}
+        </p>
       </div>
     </div>
   )

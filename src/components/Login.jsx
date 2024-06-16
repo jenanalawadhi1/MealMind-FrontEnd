@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { LoginUser } from '../services/Auth'
 
-const Login = ({setUser}) => {
+const Login = ({ setUser }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
@@ -47,6 +47,11 @@ const Login = ({setUser}) => {
             Login
           </button>
         </form>
+      </div>
+      <div>
+        <p>
+          Don’t have an account? <Link to="/register">Sign Up</Link>{' '}
+        </p>
       </div>
     </div>
   )
