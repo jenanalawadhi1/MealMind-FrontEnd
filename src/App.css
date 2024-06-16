@@ -8,7 +8,7 @@ body {
 }
 
 .form-container {
-  background-color: #ffe6e6;
+  background-color: #fabdce;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -60,20 +60,20 @@ input[type='radio'] + label {
 
 input[type='checkbox']:checked + label,
 input[type='radio']:checked + label {
-  background-color: #ffcccb;
-  border-color: #ff99a6;
+  background-color: #ffcbea;
+  border-color: #ff99cf;
 }
 
 input[type='text'][value='Other (please specify)'],
 input[type='number'][value='Other (please specify)'],
 input[type='date'][value='Other (please specify)'],
 select[value='Other (please specify)'] {
-  background-color: #ffcccb;
-  border-color: #ff99a6;
+  background-color: #ffcbe8;
+  border-color: #ff99d1;
 }
 
 .validation-message {
-  color: red;
+  color: rgb(164, 35, 95);
   margin-top: 10px;
 }
 
@@ -91,18 +91,18 @@ button {
 }
 
 button[type='button'] {
-  background-color: #ff99a6;
+  background-color: #ff99cf;
   color: white;
 }
 
 button[type='submit'] {
-  background-color: #ff4c61;
+  background-color: #ff4ca0;
   color: white;
 }
 
 button[type='button']:hover,
 button[type='submit']:hover {
-  background-color: #ff1f3a;
+  background-color: #ff1f88;
 }
 
 .feed {
