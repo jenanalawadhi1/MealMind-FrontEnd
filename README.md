@@ -73,7 +73,7 @@ GROQ_API_KEY=<api key for groq>
 - [x] Different plan categories (Vegan, Keto, Gluten-free.. etc)
 - [ ] Upload image for the post
 - [ ] Random picture for plans
-- [ ] Selection units Kg/Pounds
+- [x] Adding a feature of different units to be selected for both Height (cm/ ft) and Weight (kg/ lbs)
 
 ---
 
