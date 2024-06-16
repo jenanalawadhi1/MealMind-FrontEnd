@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import questions from '../../questions'
 import TestForm from '../components/TestForm'
 import { CreateNewPlan } from '../services/MealPlanServices'
@@ -10,6 +11,9 @@ const StartPlan = () => {
   const [validationMessage, setValidationMessage] = useState('')
   const [units, setUnits] = useState({ weight: 'kg', height: 'cm' })
   const [otherResponses, setOtherResponses] = useState(initialResponses)
+  const [mealPlan, setMealPlan] = useState(null)
+
+  const navigate = useNavigate()
 
   const handleNext = () => {
     const currentResponse = responses[currentQuestionIndex]
@@ -72,10 +76,11 @@ const StartPlan = () => {
         try {
           const result = await CreateNewPlan(formData)
           console.log('Meal plan created:', result)
-          alert('Form submitted successfully!')
+          setMealPlan(result)
+          // Navigate to the newly created plan's page
+          navigate(`/plans/${mealPlan._id}`)
         } catch (error) {
           console.error('Error creating meal plan:', error)
-          alert('An error occurred while submitting the form.')
         }
       }
     } else {
@@ -141,6 +146,7 @@ const StartPlan = () => {
         handleNext={handleNext}
         handleBack={handleBack}
         handleDone={handleDone}
+        mealPlan={mealPlan}
       />
     </div>
     // ) : (
