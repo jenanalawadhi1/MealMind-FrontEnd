@@ -1,21 +1,120 @@
 body {
+  height: 100%;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
 }
 
-.feed{
+.form-container {
+  background-color: #ffe6e6;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='date'],
+select {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  margin-right: 10px;
+}
+
+input[type='checkbox'] + label,
+input[type='radio'] + label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 80%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + label,
+input[type='radio']:checked + label {
+  background-color: #ffcccb;
+  border-color: #ff99a6;
+}
+
+input[type='text'][value='Other (please specify)'],
+input[type='number'][value='Other (please specify)'],
+input[type='date'][value='Other (please specify)'],
+select[value='Other (please specify)'] {
+  background-color: #ffcccb;
+  border-color: #ff99a6;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button[type='button'] {
+  background-color: #ff99a6;
+  color: white;
+  align-self: flex-start;
+}
+
+button[type='submit'] {
+  background-color: #ff4c61;
+  color: white;
+  align-self: flex-end;
+}
+
+button[type='button']:hover,
+button[type='submit']:hover {
+  background-color: #ff1f3a;
+}
+
+button[type='button']:nth-child(1) {
+  margin-right: auto;
+}
+
+.feed {
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 10%
+  margin: 10%;
 }
 
-.home-guest{
+.home-guest {
   display: flex;
   justify-content: space-around;
-  margin: 10%
+  margin: 10%;
 }
 
-.plan{
-  margin: 10%
+.plan {
+  margin: 10%;
 }
