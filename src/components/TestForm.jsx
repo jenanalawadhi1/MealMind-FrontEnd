@@ -12,7 +12,8 @@ const TestForm = ({
   handleUnitChange,
   handleNext,
   handleBack,
-  handleDone
+  handleDone,
+  mealPlan
 }) => {
   const currentQuestion = questions[currentQuestionIndex]
 
@@ -84,73 +85,52 @@ const TestForm = ({
               ))}
             </div>
           )
-        ) : currentQuestion.content.includes('Weight') ? (
+        ) : currentQuestion.id === 3 || currentQuestion.id === 4 ? (
           <div>
             <input
-              type="number"
-              value={responses[currentQuestionIndex]}
+              type="text"
+              value={responses[currentQuestionIndex] || ''}
               onChange={handleChange}
-              placeholder={`Enter weight in ${units.weight}`}
+              placeholder={currentQuestion.id === 3 ? 'Weight' : 'Height'}
             />
-            <div>
-              <select
-                value={units.weight}
-                onChange={(e) => handleUnitChange('weight', e)}
-              >
-                <option value="kg">kg</option>
-                <option value="lbs">lbs</option>
-              </select>
-            </div>
+            <select
+              value={units[currentQuestion.id === 3 ? 'weight' : 'height']}
+              onChange={(e) =>
+                handleUnitChange(
+                  currentQuestion.id === 3 ? 'weight' : 'height',
+                  e
+                )
+              }
+            >
+              <option value="kg">kg</option>
+              <option value="lbs">lbs</option>
+              <option value="cm">cm</option>
+              <option value="ft">ft</option>
+            </select>
           </div>
-        ) : currentQuestion.content.includes('Height') ? (
-          <div>
-            <input
-              type="number"
-              value={responses[currentQuestionIndex]}
-              onChange={handleChange}
-              placeholder={`Enter height in ${units.height}`}
-            />
-            <div>
-              <select
-                value={units.height}
-                onChange={(e) => handleUnitChange('height', e)}
-              >
-                <option value="cm">cm</option>
-                <option value="ft">ft</option>
-              </select>
-            </div>
-          </div>
-        ) : currentQuestion.content === 'Date of Birth:' ? (
-          <input
-            type="date"
-            id="dob"
-            name="dob"
-            value={responses[currentQuestionIndex]}
-            min="1900-01-01"
-            max="2024-12-31"
-            onChange={handleChange}
-          />
         ) : (
           <input
-            type="text"
-            value={responses[currentQuestionIndex]}
+            type={currentQuestion.id === 2 ? 'date' : 'text'}
+            value={responses[currentQuestionIndex] || ''}
             onChange={handleChange}
+            placeholder={currentQuestion.content}
           />
         )}
       </div>
-      {validationMessage && <p>{validationMessage}</p>}
-      <div>
+      {validationMessage && (
+        <div className="validation-message">{validationMessage}</div>
+      )}
+      <div className="buttons">
         {currentQuestionIndex > 0 && (
           <button type="button" onClick={handleBack}>
             Back
           </button>
         )}
-        {currentQuestionIndex < questions.length - 1 && (
+        {currentQuestionIndex < questions.length - 1 ? (
           <button type="button" onClick={handleNext}>
             Next
           </button>
-        )}
-        {currentQuestionIndex === questions.length - 1 && (
+        ) : (
           <button type="button" onClick={handleDone}>
             Done
           </button>

@@ -1,21 +1,125 @@
 body {
+  height: 100%;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/background.png');
+  background-repeat: no-repeat;
 }
 
-.feed{
+.form-container {
+  background-color: #fabdce;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='date'],
+select {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  margin-right: 10px;
+}
+
+input[type='checkbox'] + label,
+input[type='radio'] + label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 80%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + label,
+input[type='radio']:checked + label {
+  background-color: #ffcbea;
+  border-color: #ff99cf;
+}
+
+input[type='text'][value='Other (please specify)'],
+input[type='number'][value='Other (please specify)'],
+input[type='date'][value='Other (please specify)'],
+select[value='Other (please specify)'] {
+  background-color: #ffcbe8;
+  border-color: #ff99d1;
+}
+
+.validation-message {
+  color: rgb(164, 35, 95);
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type='button'] {
+  background-color: #ff99cf;
+  color: white;
+}
+
+button[type='submit'] {
+  background-color: #ff4ca0;
+  color: white;
+}
+
+button[type='button']:hover,
+button[type='submit']:hover {
+  background-color: #ff1f88;
+}
+
+.feed {
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 10%
+  margin: 10%;
 }
 
-.home-guest{
+.home-guest {
   display: flex;
   justify-content: space-around;
-  margin: 10%
+  margin: 10%;
 }
 
-.plan{
-  margin: 10%
+.plan {
+  margin: 10%;
 }

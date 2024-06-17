@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { LoginUser } from '../services/Auth'
 
 const Login = ({ setUser }) => {
@@ -16,7 +16,7 @@ const Login = ({ setUser }) => {
     const payload = await LoginUser(formValues)
     setFormValues({ email: '', password: '' })
     setUser(payload)
-    navigate('/')
+    navigate('/posts')
   }
 
   return (
@@ -48,6 +48,11 @@ const Login = ({ setUser }) => {
             Login
           </button>
         </form>
+      </div>
+      <div>
+        <p>
+          Don’t have an account? <Link to="/register">Sign Up</Link>{' '}
+        </p>
       </div>
     </div>
   )

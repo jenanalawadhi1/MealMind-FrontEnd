@@ -1,15 +1,19 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import questions from '../../questions'
-import Login from '../components/Login'
 import TestForm from '../components/TestForm'
+import { CreateNewPlan } from '../services/MealPlanServices'
 
-const StartPlan = ({ user }) => {
+const StartPlan = () => {
   const initialResponses = Array(questions.length).fill('')
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [responses, setResponses] = useState(initialResponses)
   const [validationMessage, setValidationMessage] = useState('')
   const [units, setUnits] = useState({ weight: 'kg', height: 'cm' })
   const [otherResponses, setOtherResponses] = useState(initialResponses)
+  const [mealPlan, setMealPlan] = useState(null)
+
+  const navigate = useNavigate()
 
   const handleNext = () => {
     const currentResponse = responses[currentQuestionIndex]
@@ -38,7 +42,7 @@ const StartPlan = ({ user }) => {
     setCurrentQuestionIndex(currentQuestionIndex - 1)
   }
 
-  const handleDone = () => {
+  const handleDone = async () => {
     const currentResponse = responses[currentQuestionIndex]
     const currentOtherResponse = otherResponses[currentQuestionIndex]
 
@@ -53,8 +57,31 @@ const StartPlan = ({ user }) => {
         setValidationMessage('Please specify for the "Other" option.')
       } else {
         setValidationMessage('')
-        alert('Form submitted successfully!')
-        // Here you can handle the form submission, e.g., send responses to a server
+
+        // Collect all form data into an object
+        const formData = {
+          gender: responses[0],
+          dob: responses[1],
+          weight: responses[2],
+          height: responses[3],
+          goal: responses[4],
+          activityLevel: responses[5],
+          dietaryRestrictions: responses[6],
+          medicalConditions: responses[7],
+          dailyRoutine: responses[8],
+          waterIntake: responses[9],
+          units
+        }
+
+        try {
+          const result = await CreateNewPlan(formData)
+          console.log('Meal plan created:', result)
+          setMealPlan(result)
+          // Navigate to the newly created plan's page
+          navigate(`/plans/${mealPlan._id}`)
+        } catch (error) {
+          console.error('Error creating meal plan:', error)
+        }
       }
     } else {
       setValidationMessage('Please answer the question before proceeding.')
@@ -103,7 +130,7 @@ const StartPlan = ({ user }) => {
   // Case 1: user logged in
   // TestForm to get the new plan
   return (
-    <div>
+    <div className="form-container">
       <TestForm
         currentQuestionIndex={currentQuestionIndex}
         questions={questions}
@@ -119,6 +146,7 @@ const StartPlan = ({ user }) => {
         handleNext={handleNext}
         handleBack={handleBack}
         handleDone={handleDone}
+        mealPlan={mealPlan}
       />
     </div>
     // ) : (
