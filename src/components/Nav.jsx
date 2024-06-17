@@ -4,7 +4,7 @@ const Nav = ({ user, handleLogOut }) => {
   let userOptions
   if (user) {
     userOptions = (
-      <nav>
+      <nav className='loginNav'>
         <h3>
           Welcome {user.firstName} {user.lastName}!
         </h3>
@@ -20,7 +20,7 @@ const Nav = ({ user, handleLogOut }) => {
   }
 
   const publicOptions = (
-    <nav>
+    <nav className='logoutNav'>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Link to="/login">Start Plan</Link>

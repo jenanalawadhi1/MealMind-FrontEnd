@@ -6,6 +6,8 @@ body {
   align-items: center;
   background-image: url('../images/background.png');
   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .form-container {
@@ -115,11 +117,25 @@ button[type='submit']:hover {
 }
 
 .home-guest {
+  font-family: 'Caudex', serif;
   display: flex;
   justify-content: space-around;
   margin: 10%;
 }
-
+.home-text {
+  font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-style: normal;
+}
 .plan {
   margin: 10%;
+}
+
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #333; */
+  color: #fff;
+  padding: 10px;
 }
