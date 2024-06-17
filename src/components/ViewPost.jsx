@@ -1,9 +1,5 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
-
-// const ViewPost = ({post}) => {
-//   let { id } = useParams()
-
+// import { useParams } from 'react-router-dom'
 
 const ViewPost = ({ post, AddComment, UpdateComment, DeleteComment }) => {
   const [newComment, setNewComment] = useState('')
