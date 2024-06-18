@@ -14,12 +14,16 @@ const MyPlans = ({ user }) => {
           setPlans(plans)
         }
       } catch (error) {
-        console.error('Error fetching meal plans:', error)
+        console.error('Error getting user plans:', error)
       }
     }
 
     getUserPlans()
   }, [user])
+
+  const removePlan = (planId) => {
+    setPlans(plans.filter((plan) => plan._id !== planId))
+  }
 
   return (
     <div className="feed">
@@ -31,7 +35,9 @@ const MyPlans = ({ user }) => {
           </Link>
         </div>
       ) : (
-        plans.map((plan) => <Plan key={plan._id} plan={plan} />)
+        plans.map((plan) => (
+          <Plan key={plan._id} plan={plan} onDelete={removePlan} />
+        ))
       )}
     </div>
   )
