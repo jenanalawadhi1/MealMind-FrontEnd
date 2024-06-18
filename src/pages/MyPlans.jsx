@@ -21,6 +21,10 @@ const MyPlans = ({ user }) => {
     getUserPlans()
   }, [user])
 
+  const removePlan = (planId) => {
+    setPlans(plans.filter((plan) => plan._id !== planId))
+  }
+
   return (
     <div className="feed">
       {plans.length === 0 ? (
@@ -31,7 +35,9 @@ const MyPlans = ({ user }) => {
           </Link>
         </div>
       ) : (
-        plans.map((plan) => <Plan key={plan._id} plan={plan} />)
+        plans.map((plan) => (
+          <Plan key={plan._id} plan={plan} onDelete={removePlan} />
+        ))
       )}
     </div>
   )

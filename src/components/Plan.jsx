@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { DeletePlan } from '../services/MealPlanServices'
 
-const Plan = ({ plan }) => {
+const Plan = ({ plan, onDelete }) => {
   const [planToDelete, setPlanToDelete] = useState(null)
 
   const handleDeletePlan = (planId) => {
@@ -13,7 +13,7 @@ const Plan = ({ plan }) => {
     if (planToDelete) {
       try {
         await DeletePlan(planToDelete)
-        // Optionally, you can remove the plan from the UI or refresh the list
+        onDelete(planToDelete)
         console.log(`Plan ${planToDelete} deleted successfully`)
       } catch (error) {
         console.error(`Error deleting plan: ${error.message}`)
