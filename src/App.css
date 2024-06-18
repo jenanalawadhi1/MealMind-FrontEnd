@@ -117,7 +117,7 @@ button[type='submit']:hover {
 }
 
 .home-guest {
-  font-family: 'Caudex', serif;
+  font-family: 'Rozha One', serif;
   display: flex;
   justify-content: space-around;
   margin: 10%;
@@ -131,11 +131,13 @@ button[type='submit']:hover {
   margin: 10%;
 }
 
-.Nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: #333; */
-  color: #fff;
-  padding: 10px;
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff6b6b;
 }

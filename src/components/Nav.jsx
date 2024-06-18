@@ -4,7 +4,8 @@ const Nav = ({ user, handleLogOut }) => {
   let userOptions
   if (user) {
     userOptions = (
-      <nav className='loginNav'>
+      <nav className="loginNav">
+        <img className="logo" src="logo.jpg" />
         <h3>
           Welcome {user.firstName} {user.lastName}!
         </h3>
@@ -20,7 +21,8 @@ const Nav = ({ user, handleLogOut }) => {
   }
 
   const publicOptions = (
-    <nav className='logoutNav'>
+    <nav className="logoutNav">
+      <img className="logo" src="logo.jpg" />
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Link to="/login">Start Plan</Link>
@@ -34,9 +36,9 @@ const Nav = ({ user, handleLogOut }) => {
       <Link to="/">
         <div className="logo-wrapper" alt="logo">
           <img
-            // className="logo"
-            // src="https://avatars.dicebear.com/api/gridy/app.svg"
-            // alt="welcome banner"
+          // className="logo"
+          // src="https://avatars.dicebear.com/api/gridy/app.svg"
+          // alt="welcome banner"
           />
         </div>
       </Link>
