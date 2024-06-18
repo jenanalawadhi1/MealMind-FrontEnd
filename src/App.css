@@ -110,9 +110,11 @@ button[type='submit']:hover {
 
 .feed {
   margin: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
   margin: 10%;
 }
 
