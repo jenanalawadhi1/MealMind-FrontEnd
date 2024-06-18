@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import CreatePost from '../components/CreatePost'
 
 const ShowPlan = ({ user }) => {
+  console.log('show plan user', user)
   //should get the plan from the id
   // {id} = useParams()
   const { id } = useParams() // Get the plan ID from the URL
@@ -46,7 +47,7 @@ const ShowPlan = ({ user }) => {
           <p>{day.dinner}</p>
         </details>
       ))}
-      <CreatePost planId={plan._id} userId={user._id} />
+      <CreatePost planId={plan._id} userId={user.id} />
     </div>
   )
 }
