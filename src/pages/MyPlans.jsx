@@ -14,7 +14,7 @@ const MyPlans = ({ user }) => {
           setPlans(plans)
         }
       } catch (error) {
-        console.error('Error fetching meal plans:', error)
+        console.error('Error getting user plans:', error)
       }
     }
 
