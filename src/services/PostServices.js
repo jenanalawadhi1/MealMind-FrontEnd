@@ -3,7 +3,6 @@ import Client from './api'
 export const GetPosts = async () => {
   try {
     const res = await Client.get('/posts')
-    console.log(res.data);
     return res.data
   } catch (error) {
     throw error
@@ -13,7 +12,24 @@ export const GetPosts = async () => {
 export const CreateNewPost = async (data) => {
   try {
     const res = await Client.post('/posts', data)
-    console.log(res.data);
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const UpdatePost = async (postId, data) => {
+  try {
+    const res = await Client.put(`/posts/${postId}`, data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const DeletePost = async (postId) => {
+  try {
+    const res = await Client.delete(`/posts/${postId}`)
     return res.data
   } catch (error) {
     throw error

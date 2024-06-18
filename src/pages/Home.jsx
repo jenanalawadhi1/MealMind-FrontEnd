@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { GetPosts } from '../services/PostServices'
+import Post from '../components/Post'
 
 const Home = ({ user }) => {
   let navigate = useNavigate()
@@ -14,24 +15,13 @@ const Home = ({ user }) => {
     }
     getposts()
   }, [])
-
-  // Case 1: user logged in
-  // ViewPosts
   return user ? (
     <div className="feed">
       {posts.map((post) => (
-        <div key={post._id} className="feed-post">
-          <h3>Published By {post.user.firstName}</h3>
-          <h3>{post.title}</h3>
-          <p>{post.caption}</p>
-          <div className="button" onClick={()=> navigate(`/posts/${post._id}`)}>Read More</div>
-        </div>
+        <Post key={post._id} post={post} />
       ))}
     </div>
   ) : (
-    // Case 2: If user logged Out
-    // GetStarted btn
-    // Login btn
     <div className="home-guest">
       <div>
         <h1 className="home-text">Let's Begin Your Diet Planning</h1>

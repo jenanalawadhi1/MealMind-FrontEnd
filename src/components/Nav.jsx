@@ -8,7 +8,7 @@ const Nav = ({ user, handleLogOut }) => {
         <h3>
           Welcome {user.firstName} {user.lastName}!
         </h3>
-        <Link to="/posts">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/plans/new">Start Plan</Link>
         <Link to="/plans">MyPlans</Link>

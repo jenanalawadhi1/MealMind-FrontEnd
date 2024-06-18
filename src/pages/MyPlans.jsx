@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { GetMyPlans } from '../services/MealPlanServices'
+import Plan from '../components/Plan'
 
 const MyPlans = ({ user }) => {
   const [plans, setPlans] = useState([])
@@ -30,14 +31,7 @@ const MyPlans = ({ user }) => {
           </Link>
         </div>
       ) : (
-        plans.map((plan) => (
-          <div key={plan._id}>
-            <h3>{plan.planName}</h3>
-            <Link to={`/plans/${plan._id}`}>
-              <div className="button">Read More</div>
-            </Link>
-          </div>
-        ))
+        plans.map((plan) => <Plan key={plan._id} plan={plan} />)
       )}
     </div>
   )
