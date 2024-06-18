@@ -21,3 +21,12 @@ export const CreateNewPlan = async (data) => {
     throw error
   }
 }
+
+export const DeletePlan = async (planId) => {
+  try {
+    const res = await Client.delete(`/mealplan/${planId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
