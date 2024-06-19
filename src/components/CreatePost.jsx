@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { CreateNewPost, GetPlanPosts } from '../services/PostServices'
-import Post from '../components/Post'
+import UserPost from '../components/UserPost'
 
 // ShowPlan is the parent
 const CreatePost = ({ planId, userId }) => {
-  const { id } = useParams()
+  const { id } = useParams() //plan id
   const [posts, setPosts] = useState(null)
   const [formValues, setFormValues] = useState({
     title: '',
@@ -22,6 +22,7 @@ const CreatePost = ({ planId, userId }) => {
     console.log('plan id: ', planId, 'user id: ', userId)
     // create new post using planID
     CreateNewPost({ ...formValues, user: userId, plan: planId })
+    setPosts((prevPosts) => [...prevPosts, newPost])
     setFormValues({
       title: '',
       caption: ''
@@ -45,35 +46,37 @@ const CreatePost = ({ planId, userId }) => {
   }, [id])
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input
-        onChange={handleChange}
-        name="title"
-        value={formValues.title}
-        type="text"
-        placeholder="Title"
-        required
-      />
-      <input
-        onChange={handleChange}
-        name="caption"
-        value={formValues.caption}
-        type="text"
-        placeholder="Caption"
-        required
-      />
-      <button>Post</button>
+    <>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          onChange={handleChange}
+          name="title"
+          value={formValues.title}
+          type="text"
+          placeholder="Title"
+          required
+        />
+        <input
+          onChange={handleChange}
+          name="caption"
+          value={formValues.caption}
+          type="text"
+          placeholder="Caption"
+          required
+        />
+        <button>Post</button>
+      </form>
       {posts && (
         <div>
           <h1>Previous Posts</h1>
           {posts.map((post) => (
             <div key={post._id}>
-              <Post post={post} onDelete={removePost} />
+              <UserPost post={post} setPosts={setPosts} onDelete={removePost} planId={planId} />
             </div>
           ))}
         </div>
       )}
-    </form>
+    </>
   )
 }
 
