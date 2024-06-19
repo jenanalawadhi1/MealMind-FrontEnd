@@ -63,9 +63,9 @@ const UserPost = ({ post, onDelete, setPosts }) => {
 
   return (
     <div className="feed-post">
-      <h3>Published By {post.user.firstName}</h3>
+      <h3 className="post-header">Published By {post.user.firstName}</h3>
       {postBeingEdited ? (
-        <div>
+        <div className="post-content">
           <input
             onChange={handleChange}
             name="title"
@@ -82,21 +82,27 @@ const UserPost = ({ post, onDelete, setPosts }) => {
             placeholder="Caption"
             required
           />
-          <button onClick={handleUpdateSubmit}>Submit Update</button>
-          <button onClick={() => setPostBeingEdited(null)}>Cancel</button>
+          <div>
+            <button onClick={handleUpdateSubmit}>Submit Update</button>
+            <button onClick={() => setPostBeingEdited(null)}>Cancel</button>
+          </div>
         </div>
       ) : postToDelete ? (
-        <div>
+        <div className="post-content">
           <p>Are you sure you want to delete this post?</p>
-          <button onClick={handleConfirmDeletePost}>Yes</button>
-          <button onClick={handleCancelDeletePost}>No</button>
+          <div>
+            <button onClick={handleConfirmDeletePost}>Yes</button>
+            <button onClick={handleCancelDeletePost}>No</button>
+          </div>
         </div>
       ) : (
-        <div>
+        <div className="post-content">
           <h3>{post.title}</h3>
           <p>{post.caption}</p>
-          <button onClick={() => handleDeletePost(post._id)}>Delete</button>
-          <button onClick={() => handleEditClick(post)}>Update</button>
+          <div>
+            <button onClick={() => handleDeletePost(post._id)}>Delete</button>
+            <button onClick={() => handleEditClick(post)}>Update</button>
+          </div>
         </div>
       )}
     </div>
