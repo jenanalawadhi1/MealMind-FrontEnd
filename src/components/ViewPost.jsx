@@ -15,11 +15,16 @@ const ViewPost = ({ user }) => {
   const [commentToDelete, setCommentToDelete] = useState(-1)
   const { id } = useParams() //post id
 
-  const handleAddComment = () => {
+  const handleAddComment = async () => {
     if (newComment.trim() !== '') {
-      console.log("user", user);
+      console.log('user', user)
       const data = { comment: newComment.trim(), user: user.id }
-      addComment(id, data)
+      // addComment(id, data)
+      const newCommentResponse = await addComment(id, data)
+      setPost((prevPost) => ({
+        ...prevPost,
+        comments: [...prevPost.comments, newCommentResponse]
+      }))
       setNewComment('')
     }
   }
@@ -29,9 +34,22 @@ const ViewPost = ({ user }) => {
     setEditedComment(post.comments[index].comment)
   }
 
-  const handleUpdateComment = () => {
+  const handleUpdateComment = async (commentID) => {
     if (editedComment.trim() !== '') {
-      updateComment(editingCommentIndex, editedComment.trim())
+      // updateComment(id, commentID, editedComment.trim())
+      const updatedComment = await updateComment(
+        id,
+        commentID,
+        editedComment.trim()
+      )
+      setPost((prevPost) => ({
+        ...prevPost,
+        comments: prevPost.comments.map((comment) =>
+          comment._id === commentID
+            ? { ...comment, comment: editedComment }
+            : comment
+        )
+      }))
       setEditingCommentIndex(-1)
       setEditedComment('')
     }
@@ -93,7 +111,9 @@ const ViewPost = ({ user }) => {
                   value={editedComment}
                   onChange={(e) => setEditedComment(e.target.value)}
                 />
-                <button onClick={handleUpdateComment}>Update</button>
+                <button onClick={() => handleUpdateComment(comment._id)}>
+                  Update
+                </button>
                 <button onClick={() => setEditingCommentIndex(-1)}>
                   Cancel
                 </button>
