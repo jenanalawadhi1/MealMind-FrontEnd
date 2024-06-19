@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom'
 
 const Post = ({ post }) => {
   let navigate = useNavigate()
-
   return (
     <div className="feed-post">
       {post.user?.firstName && <h3>Published By {post.user.firstName}</h3>}

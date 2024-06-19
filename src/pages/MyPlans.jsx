@@ -10,7 +10,7 @@ const MyPlans = ({ user }) => {
     const getUserPlans = async () => {
       try {
         if (user) {
-          const plans = await GetMyPlans(user._id)
+          const plans = await GetMyPlans(user.id)
           setPlans(plans)
         }
       } catch (error) {
