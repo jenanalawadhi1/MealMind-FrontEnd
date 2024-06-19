@@ -4,7 +4,7 @@ import questions from '../../questions'
 import TestForm from '../components/TestForm'
 import { CreateNewPlan } from '../services/MealPlanServices'
 
-const StartPlan = () => {
+const StartPlan = ({ user }) => {
   const initialResponses = Array(questions.length).fill('')
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [responses, setResponses] = useState(initialResponses)
