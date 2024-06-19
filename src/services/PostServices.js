@@ -28,6 +28,8 @@ export const CreateNewPost = async (data) => {
 }
 
 export const UpdatePost = async (postId, data) => {
+  console.log('Update post ' + postId)
+  console.log('data ' + data)
   try {
     const res = await Client.put(`/posts/${postId}`, data)
     return res.data
