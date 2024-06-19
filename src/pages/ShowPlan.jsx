@@ -1,35 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
-import { DeletePost, GetPlanPosts } from '../services/PostServices'
 import CreatePost from '../components/CreatePost'
-import Post from '../components/Post'
+
 
 const ShowPlan = ({ user }) => {
   console.log('show plan user', user)
   const { id } = useParams() // Get the plan ID from the URL
   const [plan, setPlan] = useState(null)
-  const [posts, setPosts] = useState(null)
-  const [postToDelete, setPostToDelete] = useState(null)
-
-  const handleDeletePost = (postId) => {
-    setPostToDelete(postId)
-  }
-
-  const handleConfirmDeletePost = async () => {
-    if (postToDelete) {
-      try {
-        await DeletePost(postToDelete)
-      } catch (error) {
-        console.error(`Error deleting plan: ${error.message}`)
-      }
-      setPostToDelete(null)
-    }
-  }
-
-  const handleCancelDeletePost = () => {
-    setPostToDelete(null)
-  }
 
   useEffect(() => {
     // getPlan()
@@ -41,16 +19,7 @@ const ShowPlan = ({ user }) => {
         console.error('Error fetching the meal plan:', error)
       }
     }
-    const getplanposts = async () => {
-      try {
-        const response = await GetPlanPosts(id)
-        setPosts(response)
-      } catch (error) {
-        console.error('Error fetching posts:', error)
-      }
-    }
     getPlan()
-    getplanposts()
   }, [id])
 
   if (!plan) {
@@ -77,24 +46,6 @@ const ShowPlan = ({ user }) => {
         </details>
       ))}
       <CreatePost planId={plan._id} userId={user.id} />
-      {posts && (
-        <div>
-          <h1>Previous Posts</h1>
-          {posts.map((post) => (
-            <div>
-              <Post key={post._id} post={post} />
-              <button onClick={() => handleDeletePost(post._id)}>X</button>
-              {postToDelete && (
-                <div>
-                  <p>Are you sure you want to delete this plan?</p>
-                  <button onClick={handleConfirmDeletePost}>Yes</button>
-                  <button onClick={handleCancelDeletePost}>No</button>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   )
 }

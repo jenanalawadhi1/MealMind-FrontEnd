@@ -1,8 +1,12 @@
-import { useState } from 'react'
-import { CreateNewPost } from '../services/PostServices'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { CreateNewPost, GetPlanPosts } from '../services/PostServices'
+import Post from '../components/Post'
 
 // ShowPlan is the parent
 const CreatePost = ({ planId, userId }) => {
+  const { id } = useParams()
+  const [posts, setPosts] = useState(null)
   const [formValues, setFormValues] = useState({
     title: '',
     caption: ''
@@ -10,7 +14,6 @@ const CreatePost = ({ planId, userId }) => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
-    console.log(e.target.name, e.target.value)
   }
 
   const handleSubmit = async (e) => {
@@ -24,6 +27,22 @@ const CreatePost = ({ planId, userId }) => {
       caption: ''
     })
   }
+
+  const removePost = (postId) => {
+    setPosts(posts.filter((post) => post._id !== postId))
+  }
+
+  useEffect(() => {
+    const getplanposts = async () => {
+      try {
+        const response = await GetPlanPosts(id)
+        setPosts(response)
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      }
+    }
+    getplanposts()
+  }, [id])
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -44,6 +63,16 @@ const CreatePost = ({ planId, userId }) => {
         required
       />
       <button>Post</button>
+      {posts && (
+        <div>
+          <h1>Previous Posts</h1>
+          {posts.map((post) => (
+            <div key={post._id}>
+              <Post post={post} onDelete={removePost} />
+            </div>
+          ))}
+        </div>
+      )}
     </form>
   )
 }
