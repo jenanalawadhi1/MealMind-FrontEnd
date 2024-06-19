@@ -12,19 +12,23 @@ const ShowPlan = ({ user }) => {
   const [posts, setPosts] = useState(null)
   const [postToDelete, setPostToDelete] = useState(null)
 
-  const handleDeletePost = (postId) =>{
+  const handleDeletePost = (postId) => {
     setPostToDelete(postId)
   }
 
-  const handleConfirmDeletePost = async () =>{
-    if(postToDelete){
+  const handleConfirmDeletePost = async () => {
+    if (postToDelete) {
       try {
         await DeletePost(postToDelete)
-        
       } catch (error) {
-        
+        console.error(`Error deleting plan: ${error.message}`)
       }
+      setPostToDelete(null)
     }
+  }
+
+  const handleCancelDeletePost = () => {
+    setPostToDelete(null)
   }
 
   useEffect(() => {
@@ -79,7 +83,14 @@ const ShowPlan = ({ user }) => {
           {posts.map((post) => (
             <div>
               <Post key={post._id} post={post} />
-              <div>X</div>
+              <button onClick={() => handleDeletePost(post._id)}>X</button>
+              {postToDelete && (
+                <div>
+                  <p>Are you sure you want to delete this plan?</p>
+                  <button onClick={handleConfirmDeletePost}>Yes</button>
+                  <button onClick={handleCancelDeletePost}>No</button>
+                </div>
+              )}
             </div>
           ))}
         </div>
