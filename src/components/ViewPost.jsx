@@ -1,20 +1,30 @@
 import { useEffect, useState } from 'react'
 import { GetOnePost } from '../services/PostServices'
 import { useParams } from 'react-router-dom'
-import { addComment, updateComment, deleteComment } from '../services/CommentServices'
+import {
+  addComment,
+  updateComment,
+  deleteComment
+} from '../services/CommentServices'
 
-const ViewPost = () => {
+const ViewPost = ({ user }) => {
   const [post, setPost] = useState(null)
   const [newComment, setNewComment] = useState('')
   const [editingCommentIndex, setEditingCommentIndex] = useState(-1)
   const [editedComment, setEditedComment] = useState('')
   const [commentToDelete, setCommentToDelete] = useState(-1)
-  const { id } = useParams()
-  console.log('in view post page ', id)
+  const { id } = useParams() //post id
 
-  const handleAddComment = () => {
+  const handleAddComment = async () => {
     if (newComment.trim() !== '') {
-      addComment(newComment.trim())
+      console.log('user', user)
+      const data = { comment: newComment.trim(), user: user.id }
+      // addComment(id, data)
+      const newCommentResponse = await addComment(id, data)
+      setPost((prevPost) => ({
+        ...prevPost,
+        comments: [...prevPost.comments, newCommentResponse]
+      }))
       setNewComment('')
     }
   }
@@ -24,9 +34,23 @@ const ViewPost = () => {
     setEditedComment(post.comments[index].comment)
   }
 
-  const handleUpdateComment = () => {
+  const handleUpdateComment = async () => {
     if (editedComment.trim() !== '') {
-      updateComment(editingCommentIndex, editedComment.trim())
+      // updateComment(id, commentID, editedComment.trim())
+      const commentID = post.comments[editingCommentIndex]._id
+      const updatedComment = await updateComment(
+        id,
+        commentID,
+        editedComment.trim()
+      )
+      setPost((prevPost) => ({
+        ...prevPost,
+        comments: prevPost.comments.map((comment) =>
+          comment._id === commentID
+            ? { ...comment, comment: editedComment }
+            : comment
+        )
+      }))
       setEditingCommentIndex(-1)
       setEditedComment('')
     }
@@ -36,8 +60,15 @@ const ViewPost = () => {
     setCommentToDelete(index)
   }
 
-  const handleConfirmDeleteComment = () => {
-    deleteComment(commentToDelete)
+  const handleConfirmDeleteComment = async () => {
+    const commentID = post.comments[commentToDelete]._id
+    await deleteComment(id, commentID)
+    setPost((prevPost) => ({
+      ...prevPost,
+      comments: prevPost.comments.filter(
+        (comment, index) => index !== commentToDelete
+      )
+    }))
     setCommentToDelete(-1)
   }
 

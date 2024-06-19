@@ -46,7 +46,7 @@ const App = () => {
           <Route path="/plans" element={<MyPlans user={user} />} />
           <Route path="/plans/:id" element={<ShowPlan user={user} />} />
           <Route path="/plans/new" element={<StartPlan user={user}/>} />
-          <Route path="/posts/:id" element={<ViewPost />} />
+          <Route path="/posts/:id" element={<ViewPost user={user}/>} />
         </Routes>
       </main>
     </div>
