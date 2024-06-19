@@ -21,7 +21,7 @@ const CreatePost = ({ planId, userId }) => {
     //post id
     console.log('plan id: ', planId, 'user id: ', userId)
     // create new post using planID
-    CreateNewPost({ ...formValues, user: userId, plan: planId })
+    const newPost = await CreateNewPost({ ...formValues, user: userId, plan: planId })
     setPosts((prevPosts) => [...prevPosts, newPost])
     setFormValues({
       title: '',
