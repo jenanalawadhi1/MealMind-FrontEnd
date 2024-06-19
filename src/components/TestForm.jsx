@@ -18,7 +18,7 @@ const TestForm = ({
   const currentQuestion = questions[currentQuestionIndex]
 
   return (
-    <form>
+    <form className="testForm">
       <div>
         <label>{`${currentQuestionIndex + 1}. ${
           currentQuestion.content

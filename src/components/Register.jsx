@@ -105,8 +105,11 @@ const Register = () => {
         </form>
       </div>
       <div>
-        <p>
-          Alraedy have an account? <Link to="/login">Log In</Link>{' '}
+        <p id="haveAccount">
+          Alraedy have an account?{' '}
+          <Link id="loginAccount" to="/login">
+            Log In
+          </Link>{' '}
         </p>
       </div>
     </div>
