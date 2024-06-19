@@ -58,8 +58,10 @@ const StartPlan = ({ user }) => {
       } else {
         setValidationMessage('')
 
+        console.log('front end user id: ', user.id)
         // Collect all form data into an object
         const formData = {
+          user: user.id,
           gender: responses[0],
           dob: responses[1],
           weight: responses[2],
