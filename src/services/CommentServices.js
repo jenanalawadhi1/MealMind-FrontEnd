@@ -9,12 +9,9 @@ export const getComments = async (postId) => {
   }
 }
 
-export const addComment = async (postId, comment) => {
+export const addComment = async (postId, data) => {
   try {
-    const res = await Client.post(`/posts/${postId}/comments`, {
-      user: 'Anonymous',
-      comment
-    })
+    const res = await Client.post(`/posts/${postId}/comments`, data)
     return res.data
   } catch (error) {
     throw error
