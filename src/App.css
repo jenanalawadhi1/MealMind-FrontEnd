@@ -213,12 +213,39 @@ button[type='submit']:hover {
   background-color: #ff1f88;
 }
 
-.feed {
+/* .feed {
   margin: auto;
   display: grid;
   grid-template-columns: 30% 30% 30%;
   margin: 10%;
+} */
+.feed {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 200px;
 }
+
+/* .feed .no-plans {
+  text-align: center;
+  color: #666;
+  padding: 20px 0;
+} */
+
+.feed .button {
+  display: inline-block;
+  background-color: #ff4ca0;
+  color: white;
+  padding: 25px 60px;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feed .button:hover {
+  background-color: #ff99cf;
+}
+
 
 .home-guest {
   font-family: 'Rozha One', serif;
