@@ -1,15 +1,20 @@
-import { useState } from 'react'
-// import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { GetOnePost } from '../services/PostServices'
+import { useParams } from 'react-router-dom'
+import { addComment, updateComment, deleteComment } from '../services/CommentServices'
 
-const ViewPost = ({ post, AddComment, UpdateComment, DeleteComment }) => {
+const ViewPost = () => {
+  const [post, setPost] = useState(null)
   const [newComment, setNewComment] = useState('')
   const [editingCommentIndex, setEditingCommentIndex] = useState(-1)
   const [editedComment, setEditedComment] = useState('')
   const [commentToDelete, setCommentToDelete] = useState(-1)
+  const { id } = useParams()
+  console.log('in view post page ', id)
 
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
-      AddComment(newComment.trim())
+      addComment(newComment.trim())
       setNewComment('')
     }
   }
@@ -21,7 +26,7 @@ const ViewPost = ({ post, AddComment, UpdateComment, DeleteComment }) => {
 
   const handleUpdateComment = () => {
     if (editedComment.trim() !== '') {
-      UpdateComment(editingCommentIndex, editedComment.trim())
+      updateComment(editingCommentIndex, editedComment.trim())
       setEditingCommentIndex(-1)
       setEditedComment('')
     }
@@ -32,7 +37,7 @@ const ViewPost = ({ post, AddComment, UpdateComment, DeleteComment }) => {
   }
 
   const handleConfirmDeleteComment = () => {
-    DeleteComment(commentToDelete)
+    deleteComment(commentToDelete)
     setCommentToDelete(-1)
   }
 
@@ -40,7 +45,21 @@ const ViewPost = ({ post, AddComment, UpdateComment, DeleteComment }) => {
     setCommentToDelete(-1)
   }
 
-  return (
+  const getPost = async () => {
+    try {
+      const post = await GetOnePost(id)
+      setPost(post)
+    } catch (error) {
+      console.error('Error getting user plans:', error)
+    }
+  }
+
+  useEffect(() => {
+    console.log('using effect')
+    getPost()
+  }, [id])
+
+  return post ? (
     <div>
       <h3>Published By {post.name}</h3>
       <h3>{post.title}</h3>
@@ -94,6 +113,8 @@ const ViewPost = ({ post, AddComment, UpdateComment, DeleteComment }) => {
         {/* add comment */}
       </details>
     </div>
+  ) : (
+    <div>LOADING</div>
   )
 }
 

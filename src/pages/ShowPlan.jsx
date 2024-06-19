@@ -3,14 +3,12 @@ import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import CreatePost from '../components/CreatePost'
 
-
 const ShowPlan = ({ user }) => {
   console.log('show plan user', user)
   const { id } = useParams() // Get the plan ID from the URL
   const [plan, setPlan] = useState(null)
 
   useEffect(() => {
-    // getPlan()
     const getPlan = async () => {
       try {
         const response = await Client.get(`/mealplan/${id}`)
