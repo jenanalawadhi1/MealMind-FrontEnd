@@ -64,12 +64,8 @@ const UserPost = ({ post, onDelete, setPosts }) => {
   return (
     <div className="feed-post">
       <h3>Published By {post.user.firstName}</h3>
-      <h3>{post.title}</h3>
-      <p>{post.caption}</p>
-      <button onClick={() => handleDeletePost(post._id)}>X</button>
-      <button onClick={() => handleEditClick(post)}>Update</button>
-      {postBeingEdited && postBeingEdited._id === post._id && (
-        <form onSubmit={handleUpdateSubmit}>
+      {postBeingEdited ? (
+        <div>
           <input
             onChange={handleChange}
             name="title"
@@ -86,20 +82,23 @@ const UserPost = ({ post, onDelete, setPosts }) => {
             placeholder="Caption"
             required
           />
-          <button type="submit">Submit Update</button>
+          <button onClick={handleUpdateSubmit}>Submit Update</button>
           <button onClick={() => setPostBeingEdited(null)}>Cancel</button>
-        </form>
-      )}
-      {postToDelete && (
+        </div>
+      ) : postToDelete ? (
         <div>
           <p>Are you sure you want to delete this post?</p>
           <button onClick={handleConfirmDeletePost}>Yes</button>
           <button onClick={handleCancelDeletePost}>No</button>
         </div>
+      ) : (
+        <div>
+          <h3>{post.title}</h3>
+          <p>{post.caption}</p>
+          <button onClick={() => handleDeletePost(post._id)}>Delete</button>
+          <button onClick={() => handleEditClick(post)}>Update</button>
+        </div>
       )}
-      <div className="button" onClick={() => navigate(`/posts/${post._id}`)}>
-        Read More
-      </div>
     </div>
   )
 }

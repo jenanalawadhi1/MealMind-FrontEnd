@@ -9,21 +9,18 @@ export const getComments = async (postId) => {
   }
 }
 
-export const addComment = async (postId, comment) => {
+export const addComment = async (postId, data) => {
   try {
-    const res = await Client.post(`/posts/${postId}/comments`, {
-      user: 'Anonymous',
-      comment
-    })
+    const res = await Client.post(`/posts/${postId}/comments`, data)
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-export const updateComment = async (postId, commentIndex, newComment) => {
+export const updateComment = async (postId, commentId, newComment) => {
   try {
-    const res = await Client.put(`/posts/${postId}/comments/${commentIndex}`, {
+    const res = await Client.put(`/posts/${postId}/comments/${commentId}`, {
       comment: newComment
     })
     return res.data
@@ -32,9 +29,11 @@ export const updateComment = async (postId, commentIndex, newComment) => {
   }
 }
 
-export const deleteComment = async (postId, commentIndex) => {
+export const deleteComment = async (postId, commentId) => {
+  console.log('commment id', commentId);
+  
   try {
-    const res = await Client.delete(`/posts/${postId}/comments/${commentIndex}`)
+    const res = await Client.delete(`/posts/${postId}/comments/${commentId}`)
     return res.data
   } catch (error) {
     throw error
