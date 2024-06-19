@@ -78,7 +78,7 @@ const StartPlan = () => {
           console.log('Meal plan created:', result)
           setMealPlan(result)
           // Navigate to the newly created plan's page
-          navigate(`/plans/${mealPlan._id}`)
+          navigate(`/plans/${result._id}`)
         } catch (error) {
           console.error('Error creating meal plan:', error)
         }

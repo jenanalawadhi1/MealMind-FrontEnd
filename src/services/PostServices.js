@@ -9,6 +9,15 @@ export const GetPosts = async () => {
   }
 }
 
+export const GetPlanPosts = async (planId) => {
+  try {
+    const res = await Client.get(`/posts/${planId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const CreateNewPost = async (data) => {
   try {
     const res = await Client.post('/posts', data)
