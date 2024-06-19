@@ -20,53 +20,77 @@ body {
   min-width: 300px;
 }
 
+/* Container for the form elements */
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff0f6;
+  border: 2px solid #ff99d1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Label styling */
 label {
   font-weight: bold;
   margin-bottom: 10px;
   text-align: left;
+  width: 100%;
+  max-width: 540px;
+  padding-left: 10px;
 }
 
+/* Input and select styling */
 input[type='text'],
 input[type='number'],
 input[type='date'],
 select {
-  width: 80%;
+  width: 100%;
+  max-width: 540px;
   padding: 10px;
   margin: 10px 0;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Checkbox and radio styling */
 input[type='checkbox'],
 input[type='radio'] {
   margin-right: 10px;
 }
 
+/* Checkbox and radio with label styling */
 input[type='checkbox'] + label,
 input[type='radio'] + label {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
   padding: 10px;
-  width: 80%;
+  width: 100%;
+  max-width: 540px;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Checked state */
 input[type='checkbox']:checked + label,
 input[type='radio']:checked + label {
   background-color: #ffcbea;
   border-color: #ff99cf;
 }
 
+/* Special value styling */
 input[type='text'][value='Other (please specify)'],
 input[type='number'][value='Other (please specify)'],
 input[type='date'][value='Other (please specify)'],
@@ -75,9 +99,11 @@ select[value='Other (please specify)'] {
   border-color: #ff99d1;
 }
 
+/* Validation message styling */
 .validation-message {
   color: rgb(164, 35, 95);
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .buttons {
@@ -132,20 +158,45 @@ button[type='submit']:hover {
 .plan {
   margin: 10%;
 }
+/* navbar */
+nav {
+  text-align: center;
+  font-weight: bold;
+  background-color: #ff99d1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
 
 nav a {
-  margin-left: 25px;
+  display: inline-block;
+  padding: 15px 30px;
   text-decoration: none;
   color: #333;
-  font-weight: bold;
+  font-size: 20px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  border: 2px solid transparent;
 }
 
 nav a:hover {
   color: #ff6b6b;
+  border: 2px solid #ff6b6b;
+  background-color: #fff;
 }
+
+#login,
+#register {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 /* login form */
 .login .card-overlay {
-  width: 500px;
+  width: 400px;
   background: transparent;
   border: 2px solid #ff1f88;
   backdrop-filter: blur(20px);
@@ -153,21 +204,29 @@ nav a:hover {
   color: #ff1f88;
   border-radius: 10px;
   padding: 30px 40px;
+  font-size: 20px;
 }
 
 .login .input-wrapper input {
   width: 100%;
-  height: 40px;
+  height: 35px;
   font-size: 15px;
   background: transparent;
   border: 2px solid #ff1f88;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 .login button {
   font-size: 30px;
   color: #ff1f88;
-  width: 100%;
-  height: 50px;
   background: #fabdce;
-  margin: 30px 0;
+}
+#haveAccount,
+#loginAccount {
+  color: #333;
+  font-size: 20px;
+  text-align: center;
+}
+
+#loginAccount:hover {
+  color: #ff1f88;
 }

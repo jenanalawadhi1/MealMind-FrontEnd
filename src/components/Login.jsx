@@ -50,8 +50,11 @@ const Login = ({ setUser }) => {
         </form>
       </div>
       <div>
-        <p>
-          Don’t have an account? <Link to="/register">Sign Up</Link>{' '}
+        <p id="haveAccount">
+          Don’t have an account?{' '}
+          <Link id="loginAccount" to="/register">
+            Register
+          </Link>{' '}
         </p>
       </div>
     </div>
