@@ -151,12 +151,6 @@ const StartPlan = ({ user }) => {
         mealPlan={mealPlan}
       />
     </div>
-    // ) : (
-    //   // Case 2: If user logged Out
-    //   // Login
-    //   <div>
-    //     <Login />
-    //   </div>
   )
 }
 
