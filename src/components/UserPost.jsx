@@ -99,42 +99,6 @@ const UserPost = ({ post, onDelete, setPosts }) => {
           <button onClick={() => handleEditClick(post)}>Update</button>
         </div>
       )}
-      {/* <h3>{post.title}</h3>
-      <p>{post.caption}</p>
-      <button onClick={() => handleDeletePost(post._id)}>X</button>
-      <button onClick={() => handleEditClick(post)}>Update</button>
-      {postBeingEdited && postBeingEdited._id === post._id && (
-        <div>
-          <input
-            onChange={handleChange}
-            name="title"
-            value={formValues.title}
-            type="text"
-            placeholder="Title"
-            required
-          />
-          <input
-            onChange={handleChange}
-            name="caption"
-            value={formValues.caption}
-            type="text"
-            placeholder="Caption"
-            required
-          />
-          <button onClick={handleUpdateSubmit}>Submit Update</button>
-          <button onClick={() => setPostBeingEdited(null)}>Cancel</button>
-          </div>
-      )}
-      {postToDelete && (
-        <div>
-          <p>Are you sure you want to delete this post?</p>
-          <button onClick={handleConfirmDeletePost}>Yes</button>
-          <button onClick={handleCancelDeletePost}>No</button>
-        </div>
-      )}
-      <div className="button" onClick={() => navigate(`/posts/${post._id}`)}>
-        Read More
-      </div> */}
     </div>
   )
 }
