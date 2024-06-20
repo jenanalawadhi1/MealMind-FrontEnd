@@ -11,7 +11,10 @@ const About = () => {
         diet plans customized to suit your specific health and weight
         requirements.
       </p>
-      <img id="about" src="about.png" />
+      <img
+        id="about"
+        src="https://www11.0zz0.com/2024/06/20/08/200306808.png"
+      />
     </div>
   )
 }

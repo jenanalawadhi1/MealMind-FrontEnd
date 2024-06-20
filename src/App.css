@@ -28,12 +28,17 @@ body {
   font-weight: bold;
   float: center;
 }
-header a.active{
-  color: #ED7899;
+header a.active {
+  color: #ed7899;
 }
 
 .nav-links a:hover {
   color: #ff6b6b;
+}
+
+.logo-img {
+  height: 12vh;
+  width: auto;
 }
 
 #about {
@@ -262,26 +267,29 @@ button[type='submit']:hover {
   font-size: 18px;
   text-align: center;
   background-image: linear-gradient(to right, #eda7d7, #f07c9f);
-  color: #F8EDED;
+  color: #f8eded;
 }
-.post-content{
+.post-content {
   padding: 0 10% 10% 10%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
 }
-.button{
-  background-image: linear-gradient(to right, rgba(237, 167, 215, 0.66), rgba(237, 71, 121, 0.670));
+.button {
+  background-image: linear-gradient(
+    to right,
+    rgba(237, 167, 215, 0.66),
+    rgba(237, 71, 121, 0.67)
+  );
   padding: 5% 30%;
   text-align: center;
-  color: #F8EDED;
+  color: #f8eded;
   transition: 0.5ms;
 }
-.button:hover{
+.button:hover {
   cursor: pointer;
 }
-
 
 .home-guest {
   font-family: 'Rozha One', serif;

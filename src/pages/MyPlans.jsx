@@ -1,10 +1,22 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { GetMyPlans } from '../services/MealPlanServices'
+// import mealPlanImg from '../../mealPlanImages'
 import Plan from '../components/Plan'
+
+// const shuffleArray = (array) => {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     const j = (Math.floor(Math.random() * (i + 1))[(array[i], array[j])] = [
+//       array[j],
+//       array[i]
+//     ])
+//   }
+//   return array
+// }
 
 const MyPlans = ({ user }) => {
   const [plans, setPlans] = useState([])
+  // const [images, setImages] = useState([])
 
   useEffect(() => {
     const getUserPlans = async () => {
@@ -12,6 +24,7 @@ const MyPlans = ({ user }) => {
         if (user) {
           const plans = await GetMyPlans(user.id)
           setPlans(plans)
+          setImages(shuffleArray([...mealPlanImg]))
         }
       } catch (error) {
         console.error('Error getting user plans:', error)
@@ -36,7 +49,12 @@ const MyPlans = ({ user }) => {
         </div>
       ) : (
         plans.map((plan) => (
-          <Plan key={plan._id} plan={plan} onDelete={removePlan} />
+          <Plan
+            key={plan._id}
+            plan={plan}
+            onDelete={removePlan}
+            // image={images[index]}
+          />
         ))
       )}
     </div>

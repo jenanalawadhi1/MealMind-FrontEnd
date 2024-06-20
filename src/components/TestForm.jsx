@@ -12,8 +12,7 @@ const TestForm = ({
   handleUnitChange,
   handleNext,
   handleBack,
-  handleDone,
-  mealPlan
+  handleDone
 }) => {
   const currentQuestion = questions[currentQuestionIndex]
 

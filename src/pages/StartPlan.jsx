@@ -148,7 +148,6 @@ const StartPlan = ({ user }) => {
         handleNext={handleNext}
         handleBack={handleBack}
         handleDone={handleDone}
-        mealPlan={mealPlan}
       />
     </div>
   )

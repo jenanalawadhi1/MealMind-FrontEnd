@@ -28,7 +28,10 @@ const Home = ({ user }) => {
         <p>Choose what's good for you</p>
         <button onClick={() => navigate('/login')}>Get Started</button>
       </div>
-      <img src="../../images/imageholder.jpg" alt="healthy girl picture" />
+      <img
+        src="https://www12.0zz0.com/2024/06/20/08/988759870.png"
+        alt="healthy girl picture"
+      />
     </div>
   )
 }
