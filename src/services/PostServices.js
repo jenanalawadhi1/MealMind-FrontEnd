@@ -10,7 +10,7 @@ export const GetPosts = async () => {
 }
 
 export const GetOnePost = async (postId) => {
-  console.log('getting one post');
+  console.log('getting one post')
   try {
     const res = await Client.get(`/posts/1/${postId}`)
     return res.data
