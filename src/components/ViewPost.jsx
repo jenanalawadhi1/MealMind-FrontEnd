@@ -36,13 +36,8 @@ const ViewPost = ({ user }) => {
 
   const handleUpdateComment = async () => {
     if (editedComment.trim() !== '') {
-      // updateComment(id, commentID, editedComment.trim())
       const commentID = post.comments[editingCommentIndex]._id
-      const updatedComment = await updateComment(
-        id,
-        commentID,
-        editedComment.trim()
-      )
+      await updateComment(id, commentID, editedComment.trim())
       setPost((prevPost) => ({
         ...prevPost,
         comments: prevPost.comments.map((comment) =>
@@ -79,6 +74,7 @@ const ViewPost = ({ user }) => {
   const getPost = async () => {
     try {
       const post = await GetOnePost(id)
+      console.log('post comments', post.comments)
       setPost(post)
     } catch (error) {
       console.error('Error getting user plans:', error)
@@ -110,7 +106,7 @@ const ViewPost = ({ user }) => {
           <div key={index}>
             <div className="user">
               <img src="avatar" alt="avatar" />
-              {comment.user}
+              {comment.user.firstName}
             </div>
             {editingCommentIndex === index ? (
               <div>
@@ -133,10 +129,16 @@ const ViewPost = ({ user }) => {
             ) : (
               <div>
                 <p>{comment.comment}</p>
-                <button onClick={() => handleEditComment(index)}>Edit</button>
-                <button onClick={() => handleDeleteComment(index)}>
-                  Delete
-                </button>
+                {comment.user._id === user.id && (
+                  <>
+                    <button onClick={() => handleEditComment(index)}>
+                      Edit
+                    </button>
+                    <button onClick={() => handleDeleteComment(index)}>
+                      Delete
+                    </button>{' '}
+                  </>
+                )}
               </div>
             )}
           </div>
