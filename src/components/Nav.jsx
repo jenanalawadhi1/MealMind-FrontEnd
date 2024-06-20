@@ -1,31 +1,31 @@
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const Nav = ({ user, handleLogOut }) => {
   return (
     <header>
-      <Link to="/">
+      <NavLink to="/">
         <div className="logo-wrapper" alt="logo"></div>
-      </Link>
+      </NavLink>
       <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <NavLink to="/" end>Home</NavLink>
+        <NavLink to="/about" end>About</NavLink>
         {user ? (
           <>
-            <Link to="/plans/new">Start Plan</Link>
-            <Link to="/plans">MyPlans</Link>
-            <Link onClick={handleLogOut} to="/">
+            <NavLink to="/plans/new" end>Start Plan</NavLink>
+            <NavLink to="/plans" end>My Plans</NavLink>
+            <Link onClick={handleLogOut} to="/" end>
               Log Out
             </Link>
           </>
         ) : (
           <>
-            <Link to="/login">Start Plan</Link>
-            <Link id="register" to="/register">
+            <Link to="/login" end>Start Plan</Link>
+            <NavLink id="register" to="/register" end>
               Register
-            </Link>
-            <Link id="login" to="/login">
+            </NavLink>
+            <NavLink id="login" to="/login" end>
               Login
-            </Link>
+            </NavLink>
           </>
         )}
       </div>

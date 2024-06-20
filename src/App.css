@@ -12,7 +12,7 @@ body {
 
 /* navbar */
 .nav-links {
-  height: 150px;
+  height: 20%;
   text-align: center;
   font-size: 50px;
   font-weight: bold;
@@ -27,6 +27,9 @@ body {
   font-size: 20px;
   font-weight: bold;
   float: center;
+}
+header a.active{
+  color: #ED7899;
 }
 
 .nav-links a:hover {
@@ -213,17 +216,17 @@ button[type='submit']:hover {
   background-color: #ff1f88;
 }
 
-/* .feed {
+.feed {
   margin: auto;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 33% 33% 33%;
   margin: 10%;
-} */
-.feed {
+}
+/* .feed {
   max-width: 300px;
   margin: 0 auto;
   padding: 200px;
-}
+} */
 
 /* .feed .no-plans {
   text-align: center;
@@ -231,7 +234,7 @@ button[type='submit']:hover {
   padding: 20px 0;
 } */
 
-.feed .button {
+/* .feed .button {
   display: inline-block;
   background-color: #ff4ca0;
   color: white;
@@ -244,6 +247,39 @@ button[type='submit']:hover {
 
 .feed .button:hover {
   background-color: #ff99cf;
+} */
+
+.feed-post {
+  background-image: linear-gradient(
+    to right,
+    rgba(250, 139, 139, 0.3),
+    rgba(237, 71, 121, 0.345)
+  );
+  margin: 5%;
+}
+.post-header {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  background-image: linear-gradient(to right, #eda7d7, #f07c9f);
+  color: #F8EDED;
+}
+.post-content{
+  padding: 0 10% 10% 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.button{
+  background-image: linear-gradient(to right, rgba(237, 167, 215, 0.66), rgba(237, 71, 121, 0.670));
+  padding: 5% 30%;
+  text-align: center;
+  color: #F8EDED;
+  transition: 0.5ms;
+}
+.button:hover{
+  cursor: pointer;
 }
 
 
