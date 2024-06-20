@@ -6,6 +6,7 @@ import {
   updateComment,
   deleteComment
 } from '../services/CommentServices'
+import Loading from './Loading'
 
 const ViewPost = ({ user }) => {
   const [post, setPost] = useState(null)
@@ -36,13 +37,8 @@ const ViewPost = ({ user }) => {
 
   const handleUpdateComment = async () => {
     if (editedComment.trim() !== '') {
-      // updateComment(id, commentID, editedComment.trim())
       const commentID = post.comments[editingCommentIndex]._id
-      const updatedComment = await updateComment(
-        id,
-        commentID,
-        editedComment.trim()
-      )
+      await updateComment(id, commentID, editedComment.trim())
       setPost((prevPost) => ({
         ...prevPost,
         comments: prevPost.comments.map((comment) =>
@@ -79,6 +75,7 @@ const ViewPost = ({ user }) => {
   const getPost = async () => {
     try {
       const post = await GetOnePost(id)
+      console.log('post comments', post.comments)
       setPost(post)
     } catch (error) {
       console.error('Error getting user plans:', error)
@@ -105,12 +102,16 @@ const ViewPost = ({ user }) => {
         <button onClick={handleAddComment}>Add Comment</button>
       </div>
       <details>
-        <summary>Comments</summary>
+        <summary className="comments">Comments</summary>
         {post.comments.map((comment, index) => (
-          <div key={index}>
+          <div className="comment" key={index}>
             <div className="user">
-              <img src="avatar" alt="avatar" />
-              {comment.user}
+              <img
+                className="avatar"
+                src="../../images/avatar1.png"
+                alt="avatar"
+              />
+              {comment.user.firstName}
             </div>
             {editingCommentIndex === index ? (
               <div>
@@ -133,10 +134,16 @@ const ViewPost = ({ user }) => {
             ) : (
               <div>
                 <p>{comment.comment}</p>
-                <button onClick={() => handleEditComment(index)}>Edit</button>
-                <button onClick={() => handleDeleteComment(index)}>
-                  Delete
-                </button>
+                {comment.user._id === user.id && (
+                  <>
+                    <button onClick={() => handleEditComment(index)}>
+                      Edit
+                    </button>
+                    <button onClick={() => handleDeleteComment(index)}>
+                      Delete
+                    </button>{' '}
+                  </>
+                )}
               </div>
             )}
           </div>
@@ -145,7 +152,7 @@ const ViewPost = ({ user }) => {
       </details>
     </div>
   ) : (
-    <div>LOADING</div>
+    <Loading />
   )
 }
 
