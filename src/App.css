@@ -8,6 +8,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  color: #462D26
 }
 
 /* navbar */
@@ -126,11 +130,14 @@ header a.active {
   width: 50%;
   max-width: 600px;
   min-width: 300px;
+  margin: auto;
+  margin-top: 10%;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 label {
@@ -250,6 +257,9 @@ button[type='submit']:hover {
 } */
 
 .feed-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-image: linear-gradient(
     to right,
     rgba(250, 139, 139, 0.3),
@@ -270,6 +280,7 @@ button[type='submit']:hover {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 .button {
   background-image: linear-gradient(
@@ -277,13 +288,32 @@ button[type='submit']:hover {
     rgba(237, 167, 215, 0.66),
     rgba(237, 71, 121, 0.67)
   );
-  padding: 5% 30%;
+  padding: 5% 20%;
   text-align: center;
   color: #f8eded;
-  transition: 0.5ms;
+  transition: background-color 0.3s;
 }
 .button:hover {
   cursor: pointer;
+  background-color: #ff99cf;
+}
+.comments{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.avatar{
+  width: 5%;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.user{
+  display: flex;
+  align-items: center; 
+}
+.comment{
+  margin-bottom: 5%;
+  background-color: #f9f9f98b;
+  padding: 5%
 }
 
 .home-guest {
@@ -342,4 +372,15 @@ button[type='submit']:hover {
 .plan details h4 {
   margin-bottom: 5px;
   color: #ff1f88;
+}
+
+.loading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 50vh
+}
+.loading img{
+  width: 30%;
 }
