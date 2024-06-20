@@ -6,6 +6,7 @@ import {
   updateComment,
   deleteComment
 } from '../services/CommentServices'
+import Loading from './Loading'
 
 const ViewPost = ({ user }) => {
   const [post, setPost] = useState(null)
@@ -101,11 +102,15 @@ const ViewPost = ({ user }) => {
         <button onClick={handleAddComment}>Add Comment</button>
       </div>
       <details>
-        <summary>Comments</summary>
+        <summary className="comments">Comments</summary>
         {post.comments.map((comment, index) => (
-          <div key={index}>
+          <div className="comment" key={index}>
             <div className="user">
-              <img src="avatar" alt="avatar" />
+              <img
+                className="avatar"
+                src="../../images/avatar1.png"
+                alt="avatar"
+              />
               {comment.user.firstName}
             </div>
             {editingCommentIndex === index ? (
@@ -147,7 +152,7 @@ const ViewPost = ({ user }) => {
       </details>
     </div>
   ) : (
-    <div>LOADING</div>
+    <Loading />
   )
 }
 
