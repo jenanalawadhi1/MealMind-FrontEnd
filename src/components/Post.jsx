@@ -4,7 +4,9 @@ const Post = ({ post }) => {
   let navigate = useNavigate()
   return (
     <div className="feed-post">
-      <h3 className="post-header">Published By {post.user.firstName}</h3>
+      {post.user?.firstName && (
+        <h3 className="post-header">Published By {post.user.firstName}</h3>
+      )}
       <div className="post-content">
         <h3>{post.title}</h3>
         <p>{post.caption}</p>

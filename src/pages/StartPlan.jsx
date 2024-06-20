@@ -4,7 +4,7 @@ import questions from '../../questions'
 import TestForm from '../components/TestForm'
 import { CreateNewPlan } from '../services/MealPlanServices'
 
-const StartPlan = ({user}) => {
+const StartPlan = ({ user }) => {
   const initialResponses = Array(questions.length).fill('')
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [responses, setResponses] = useState(initialResponses)
@@ -58,7 +58,7 @@ const StartPlan = ({user}) => {
       } else {
         setValidationMessage('')
 
-        console.log('front end user id: ',user.id);
+        console.log('front end user id: ', user.id)
         // Collect all form data into an object
         const formData = {
           user: user.id,
@@ -151,12 +151,6 @@ const StartPlan = ({user}) => {
         mealPlan={mealPlan}
       />
     </div>
-    // ) : (
-    //   // Case 2: If user logged Out
-    //   // Login
-    //   <div>
-    //     <Login />
-    //   </div>
   )
 }
 
