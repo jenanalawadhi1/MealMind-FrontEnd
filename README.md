@@ -10,7 +10,7 @@
 
 ### Overview
 
-![MealMind Logo](./images/logo.jpg)
+![MealMind Logo](https://www12.0zz0.com/2024/06/20/08/156194360.png)
 
 **_MealMind_** is an innovative web application designed to create personalized diet plans for users. By leveraging artificial intelligence, the app tailors meal recommendations based on user responses to a questionnaire. Whether you’re aiming for weight loss, muscle gain, or overall health improvement, our app has you covered.
 
