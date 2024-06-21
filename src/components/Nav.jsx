@@ -3,14 +3,15 @@ import { NavLink, Link } from 'react-router-dom'
 const Nav = ({ user, handleLogOut }) => {
   return (
     <header>
-      <NavLink to="/"></NavLink>
-
-      <div className="nav-links">
+      <NavLink to="/">
         <img
           className="logo-img"
           alt="logo"
           src="https://www12.0zz0.com/2024/06/20/08/156194360.png"
         />
+      </NavLink>
+
+      <div className="nav-links">
         <NavLink to="/" end>
           Home
         </NavLink>

@@ -42,7 +42,7 @@ const MyPlans = ({ user }) => {
       {plans.length === 0 ? (
         <div>
           <p>No Plans Yet! Start a new meal plan</p>
-          <Link to="/plans/new">
+          <Link className="createPlan-Link" to="/plans/new">
             <div className="button">Create New Plan</div>
           </Link>
         </div>
