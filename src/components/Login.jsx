@@ -6,6 +6,7 @@ const Login = ({ setUser }) => {
   let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -13,10 +14,20 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await LoginUser(formValues)
-    setFormValues({ email: '', password: '' })
-    setUser(payload)
-    navigate('/')
+    try {
+      const payload = await LoginUser(formValues)
+      setFormValues({ email: '', password: '' })
+      setUser(payload)
+      navigate('/')
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        setErrorMessage(
+          'Incorrect email or password. Please check your credentials and try again.'
+        )
+      } else {
+        setErrorMessage('An error occurred. Please try again later.')
+      }
+    }
   }
 
   return (
@@ -44,9 +55,13 @@ const Login = ({ setUser }) => {
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
+          <button
+            className="button"
+            disabled={!formValues.email || !formValues.password}
+          >
             Login
           </button>
+          {errorMessage && <p className="validation-message">{errorMessage}</p>}
         </form>
       </div>
       <div>
