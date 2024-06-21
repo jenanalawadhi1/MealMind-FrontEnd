@@ -51,10 +51,10 @@ header a.active {
 #about h1 {
   font-size: 3rem;
   font-weight: bold;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-weight: 600;
   font-style: normal;
-  color: #D6587A;
+  color: #d6587a;
   margin-bottom: 1.5rem;
 }
 #about p {

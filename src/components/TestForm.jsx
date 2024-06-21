@@ -12,7 +12,7 @@ const TestForm = ({
   handleUnitChange,
   handleNext,
   handleBack,
-  handleDone,
+  handleDone
 }) => {
   const currentQuestion = questions[currentQuestionIndex]
 
