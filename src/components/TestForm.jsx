@@ -13,7 +13,6 @@ const TestForm = ({
   handleNext,
   handleBack,
   handleDone,
-  mealPlan
 }) => {
   const currentQuestion = questions[currentQuestionIndex]
 

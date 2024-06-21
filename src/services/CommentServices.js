@@ -30,8 +30,6 @@ export const updateComment = async (postId, commentId, newComment) => {
 }
 
 export const deleteComment = async (postId, commentId) => {
-  console.log('commment id', commentId);
-  
   try {
     const res = await Client.delete(`/posts/${postId}/comments/${commentId}`)
     return res.data
