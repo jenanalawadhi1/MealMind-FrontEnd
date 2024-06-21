@@ -14,7 +14,6 @@ const Plan = ({ plan, onDelete, image }) => {
       try {
         await DeletePlan(planToDelete)
         onDelete(planToDelete)
-        console.log(`Plan ${planToDelete} deleted successfully`)
       } catch (error) {
         console.error(`Error deleting plan: ${error.message}`)
       }

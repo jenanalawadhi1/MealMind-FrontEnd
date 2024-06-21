@@ -18,8 +18,6 @@ const CreatePost = ({ planId, userId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    //post id
-    console.log('plan id: ', planId, 'user id: ', userId)
     // create new post using planID
     const newPost = await CreateNewPost({ ...formValues, user: userId, plan: planId })
     setPosts((prevPosts) => [...prevPosts, newPost])

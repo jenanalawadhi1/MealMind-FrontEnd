@@ -2,10 +2,10 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import CreatePost from '../components/CreatePost'
+import Loading from '../components/Loading'
 
 const ShowPlan = ({ user }) => {
-  console.log('show plan user', user)
-  const { id } = useParams() // Get the plan ID from the URL
+  const { id } = useParams() // plan id
   const [plan, setPlan] = useState(null)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ShowPlan = ({ user }) => {
   }, [id])
 
   if (!plan) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   return (
@@ -43,7 +43,9 @@ const ShowPlan = ({ user }) => {
           <p>{day.dinner}</p>
         </details>
       ))}
-      <CreatePost planId={plan._id} userId={user.id} />
+      {user.id === plan.userRef && (
+        <CreatePost planId={plan._id} userId={user.id} />
+      )}
     </div>
   )
 }

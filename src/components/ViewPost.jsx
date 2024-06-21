@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GetOnePost } from '../services/PostServices'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import {
   addComment,
   updateComment,
@@ -18,9 +18,7 @@ const ViewPost = ({ user }) => {
 
   const handleAddComment = async () => {
     if (newComment.trim() !== '') {
-      console.log('user', user)
       const data = { comment: newComment.trim(), user: user.id }
-      // addComment(id, data)
       const newCommentResponse = await addComment(id, data)
       setPost((prevPost) => ({
         ...prevPost,
@@ -75,7 +73,6 @@ const ViewPost = ({ user }) => {
   const getPost = async () => {
     try {
       const post = await GetOnePost(id)
-      console.log('post comments', post.comments)
       setPost(post)
     } catch (error) {
       console.error('Error getting user plans:', error)
@@ -83,13 +80,15 @@ const ViewPost = ({ user }) => {
   }
 
   useEffect(() => {
-    console.log('using effect')
     getPost()
   }, [id])
 
   return post ? (
     <div>
-      <h3>Published By {post.name}</h3>
+      <h3>Published By {post.user.firstName}</h3>
+      <Link to={`/plans/${post.plan}`}>
+        <div className="button">View The Plan</div>
+      </Link>
       <h3>{post.title}</h3>
       <p>{post.caption}</p>
       <div>
@@ -148,7 +147,6 @@ const ViewPost = ({ user }) => {
             )}
           </div>
         ))}
-        {/* add comment */}
       </details>
     </div>
   ) : (
