@@ -1,11 +1,10 @@
 const About = () => {
   return (
-    <div id="about" className="home-guest">
+    <div id="about">
       <div>
         <h1>
           Right diet <br /> Right mind
         </h1>
-
         <p>
           We break the stereotype "healthy eating is boring". Reach your weight,
           health and workout goals with deliciously healthy food. We have
@@ -13,8 +12,7 @@ const About = () => {
           requirements.
         </p>
       </div>
-
-      <img id="about" src="about.png" />
+      <img id="about-img" src="../../images/avatar1.png" />
     </div>
   )
 }

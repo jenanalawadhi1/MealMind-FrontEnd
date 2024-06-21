@@ -130,7 +130,7 @@ const Register = () => {
           >
             Register
           </button>
-          <p>{validity}</p>
+          <p className="validation-message">{validity}</p>
         </form>
       </div>
       <div>
