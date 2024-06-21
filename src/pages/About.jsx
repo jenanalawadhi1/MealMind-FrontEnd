@@ -12,7 +12,10 @@ const About = () => {
           requirements.
         </p>
       </div>
-      <img id="about-img" src="../../images/avatar1.png" />
+      <img
+        id="about-img"
+        src="https://www3.0zz0.com/2024/06/21/21/377459026.png"
+      />
     </div>
   )
 }

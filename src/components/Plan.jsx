@@ -26,13 +26,20 @@ const Plan = ({ plan, onDelete, image }) => {
   }
 
   return (
-    <div>
-      <h3>{plan.planName}</h3>
-      <img src={image} />
-      <button onClick={() => handleDeletePlan(plan._id)}>x</button>
-      <Link to={`/plans/${plan._id}`}>
-        <div className="button">Read More</div>
-      </Link>
+    <div className="plan-post">
+      <button
+        className="delete-button"
+        onClick={() => handleDeletePlan(plan._id)}
+      >
+        x
+      </button>
+      <div className="plan-content">
+        <h3>{plan.planName}</h3>
+        <img src={image} />
+        <Link className="viewPlan-Link" to={`/plans/${plan._id}`}>
+          <div className="button">View Plan</div>
+        </Link>
+      </div>
       {planToDelete && (
         <div>
           <p>Are you sure you want to delete this plan?</p>
