@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { DeletePlan } from '../services/MealPlanServices'
 
-const Plan = ({ plan, onDelete }) => {
+const Plan = ({ plan, onDelete, image }) => {
   const [planToDelete, setPlanToDelete] = useState(null)
 
   const handleDeletePlan = (planId) => {
@@ -29,6 +29,7 @@ const Plan = ({ plan, onDelete }) => {
   return (
     <div>
       <h3>{plan.planName}</h3>
+      <img src={image} />
       <button onClick={() => handleDeletePlan(plan._id)}>x</button>
       <Link to={`/plans/${plan._id}`}>
         <div className="button">Read More</div>
