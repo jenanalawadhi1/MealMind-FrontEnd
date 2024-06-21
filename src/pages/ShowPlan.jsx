@@ -4,8 +4,7 @@ import Client from '../services/api'
 import CreatePost from '../components/CreatePost'
 
 const ShowPlan = ({ user }) => {
-  console.log('show plan user', user)
-  const { id } = useParams() // Get the plan ID from the URL
+  const { id } = useParams() // plan id
   const [plan, setPlan] = useState(null)
 
   useEffect(() => {

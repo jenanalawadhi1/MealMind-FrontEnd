@@ -57,8 +57,6 @@ const StartPlan = ({ user }) => {
         setValidationMessage('Please specify for the "Other" option.')
       } else {
         setValidationMessage('')
-
-        console.log('front end user id: ', user.id)
         // Collect all form data into an object
         const formData = {
           user: user.id,
@@ -77,7 +75,6 @@ const StartPlan = ({ user }) => {
 
         try {
           const result = await CreateNewPlan(formData)
-          console.log('Meal plan created:', result)
           setMealPlan(result)
           // Navigate to the newly created plan's page
           navigate(`/plans/${result._id}`)
@@ -129,7 +126,6 @@ const StartPlan = ({ user }) => {
     }))
   }
 
-  // Case 1: user logged in
   // TestForm to get the new plan
   return (
     <div className="form-container">

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { GetPosts } from '../services/PostServices'
 import Post from '../components/Post'
+import Loading from '../components/Loading'
 
 const Home = ({ user }) => {
   let navigate = useNavigate()
@@ -15,12 +16,17 @@ const Home = ({ user }) => {
     }
     getposts()
   }, [])
+
   return user ? (
-    <div className="feed">
-      {posts.map((post) => (
-        <Post key={post._id} post={post} />
-      ))}
-    </div>
+    posts.length !== 0 ? (
+      <div className="feed">
+        {posts.map((post) => (
+          <Post key={post._id} post={post} />
+        ))}
+      </div>
+    ) : (
+      <Loading />
+    )
   ) : (
     <div className="home-guest">
       <div>

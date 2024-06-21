@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { DeletePost, UpdatePost } from '../services/PostServices'
 
 const UserPost = ({ post, onDelete, setPosts }) => {
-  let navigate = useNavigate()
   const [postToDelete, setPostToDelete] = useState(null)
   const [postBeingEdited, setPostBeingEdited] = useState(null)
   const [formValues, setFormValues] = useState({
@@ -24,7 +22,6 @@ const UserPost = ({ post, onDelete, setPosts }) => {
       try {
         await DeletePost(postToDelete)
         onDelete(postToDelete)
-        console.log(`Post ${postToDelete} deleted successfully`)
       } catch (error) {
         console.error(`Error deleting post: ${error.message}`)
       }
@@ -44,7 +41,6 @@ const UserPost = ({ post, onDelete, setPosts }) => {
   const handleUpdateSubmit = async (event) => {
     event.preventDefault()
     try {
-      console.log('update form values: ', formValues)
       await UpdatePost(postBeingEdited._id, formValues)
       setPosts((prevPosts) => {
         return prevPosts.map((p) => {
