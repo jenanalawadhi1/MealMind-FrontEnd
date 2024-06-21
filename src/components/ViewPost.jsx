@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GetOnePost } from '../services/PostServices'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import {
   addComment,
   updateComment,
@@ -86,6 +86,9 @@ const ViewPost = ({ user }) => {
   return post ? (
     <div>
       <h3>Published By {post.user.firstName}</h3>
+      <Link to={`/plans/${post.plan}`}>
+        <div className="button">View The Plan</div>
+      </Link>
       <h3>{post.title}</h3>
       <p>{post.caption}</p>
       <div>
