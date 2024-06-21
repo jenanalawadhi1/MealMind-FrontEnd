@@ -11,7 +11,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
-  color: #462D26
+  color: #462d26;
 }
 
 /* navbar */
@@ -40,6 +40,7 @@ header a.active {
   color: #ff6b6b;
 }
 
+/*about page*/
 #about {
   display: flex;
   flex-direction: row;
@@ -47,39 +48,23 @@ header a.active {
   align-items: center;
   padding: 4rem;
 }
-
 #about h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: #ff1f88;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #D6587A;
   margin-bottom: 1.5rem;
 }
-
 #about p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #333;
-  max-width: 50%;
+  max-width: 80%;
 }
-
-#about img {
+#about-img {
   max-width: 40%;
   height: auto;
-}
-
-#about {
-  flex-direction: column;
-  padding: 2rem;
-}
-
-#about p {
-  max-width: 100%;
-  text-align: center;
-}
-
-#about img {
-  max-width: 60%;
-  margin-top: 2rem;
 }
 
 /* login form */
@@ -207,6 +192,9 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+button:disabled {
+  cursor: not-allowed;
+}
 
 button[type='button'] {
   background-color: #ff99cf;
@@ -229,32 +217,6 @@ button[type='submit']:hover {
   grid-template-columns: 33% 33% 33%;
   margin: 10%;
 }
-/* .feed {
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 200px;
-} */
-
-/* .feed .no-plans {
-  text-align: center;
-  color: #666;
-  padding: 20px 0;
-} */
-
-/* .feed .button {
-  display: inline-block;
-  background-color: #ff4ca0;
-  color: white;
-  padding: 25px 60px;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.feed .button:hover {
-  background-color: #ff99cf;
-} */
 
 .feed-post {
   display: flex;
@@ -297,27 +259,27 @@ button[type='submit']:hover {
   cursor: pointer;
   background-color: #ff99cf;
 }
-.comments{
+.comments {
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.avatar{
+.avatar {
   width: 5%;
   border-radius: 50%;
   margin-right: 15px;
 }
-.user{
+.user {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
-.comment{
+.comment {
   margin-bottom: 5%;
   background-color: #f9f9f98b;
-  padding: 5%
+  padding: 5%;
 }
 
 .home-guest {
-  font-family: 'Rozha One', serif;
+  /* font-family: 'Rozha One', serif; */
   display: flex;
   justify-content: space-around;
   margin: 10%;
@@ -374,13 +336,13 @@ button[type='submit']:hover {
   color: #ff1f88;
 }
 
-.loading{
+.loading {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 50vh
+  height: 50vh;
 }
-.loading img{
+.loading img {
   width: 30%;
 }
