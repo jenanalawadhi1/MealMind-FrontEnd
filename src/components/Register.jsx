@@ -12,27 +12,55 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   })
+  const [validity, setValidity] = useState('')
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    if (formValues.password.length < 7) {
+      setValidity('Password Must Contain At Least 8 Charcters .')
+    } else {
+      setValidity('')
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await RegisterUser({
-      firstName: formValues.firstName,
-      lastName: formValues.lastName,
-      email: formValues.email,
-      password: formValues.password
-    })
-    setFormValues({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    })
-    navigate('/login')
+    const { password, confirmPassword, email, firstName, lastName } = formValues
+
+    if (!password || !confirmPassword || !email || !firstName || !lastName) {
+      setValidity('Fill In Your Deatails Please.')
+      return
+    }
+
+    if (password !== confirmPassword) {
+      setValidity('Passwords Not Matching.')
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        password: '',
+        confirmPassword: ''
+      }))
+      return
+    }
+
+    if (password.length < 8) {
+      setValidity('Password Must Contain At Least 8 Charcters .')
+      return
+    }
+
+    try {
+      await RegisterUser({ firstName, lastName, email, password })
+      setFormValues({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      })
+      navigate('/login')
+    } catch (error) {
+      setValidity('Registration Failed')
+      console.error('Registration failed:', error)
+    }
   }
 
   return (
@@ -100,8 +128,9 @@ const Register = () => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Login
+            Register
           </button>
+          <p>{validity}</p>
         </form>
       </div>
       <div>
