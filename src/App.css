@@ -276,6 +276,10 @@ button[type='submit']:hover {
   background-color: #f9f9f98b;
   padding: 5%;
 }
+.post{
+  max-width: 800px;
+  padding: 10%;
+}
 
 .home-guest {
   /* font-family: 'Rozha One', serif; */
@@ -288,6 +292,15 @@ button[type='submit']:hover {
   font-weight: 700;
   font-style: normal;
 }
+.home-button{
+  border-radius: 25px;
+  padding: 2% 5%;
+}
+.post-button{
+  margin: 0 30%;
+  padding: 2% 5%;
+}
+
 .plan {
   max-width: 800px;
   margin: 0 auto;

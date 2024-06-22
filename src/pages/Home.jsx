@@ -32,7 +32,7 @@ const Home = ({ user }) => {
       <div>
         <h1 className="home-text">Let's Begin Your Diet Planning</h1>
         <p>Choose what's good for you</p>
-        <button className="button" onClick={() => navigate('/login')}>
+        <button className="button home-button" onClick={() => navigate('/login')}>
           Get Started
         </button>
       </div>
