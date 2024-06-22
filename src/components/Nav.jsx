@@ -12,33 +12,23 @@ const Nav = ({ user, handleLogOut }) => {
       </NavLink>
 
       <div className="nav-links">
-        <NavLink to="/" end>
-          Home
-        </NavLink>
-        <NavLink to="/about" end>
-          About
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
         {user ? (
           <>
-            <NavLink to="/plans/new" end>
-              Start Plan
-            </NavLink>
-            <NavLink to="/plans" end>
-              My Plans
-            </NavLink>
-            <Link onClick={handleLogOut} to="/" end>
+            <NavLink to="/plans/new">Start Plan</NavLink>
+            <NavLink to="/plans">My Plans</NavLink>
+            <Link onClick={handleLogOut} to="/">
               Log Out
             </Link>
           </>
         ) : (
           <>
-            <Link to="/login" end>
-              Start Plan
-            </Link>
-            <NavLink id="register" to="/register" end>
+            <Link to="/login">Start Plan</Link>
+            <NavLink id="register" to="/register">
               Register
             </NavLink>
-            <NavLink id="login" to="/login" end>
+            <NavLink id="login" to="/login">
               Login
             </NavLink>
           </>
