@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { DeletePlan } from '../services/MealPlanServices'
 
-const Plan = ({ plan, onDelete }) => {
+const Plan = ({ plan, onDelete, image }) => {
   const [planToDelete, setPlanToDelete] = useState(null)
 
   const handleDeletePlan = (planId) => {
@@ -26,17 +26,34 @@ const Plan = ({ plan, onDelete }) => {
   }
 
   return (
-    <div>
-      <h3>{plan.planName}</h3>
-      <button onClick={() => handleDeletePlan(plan._id)}>x</button>
-      <Link to={`/plans/${plan._id}`}>
-        <div className="button">Read More</div>
-      </Link>
+    <div className="plan-post">
+      <button
+        className="delete-button"
+        onClick={() => handleDeletePlan(plan._id)}
+      >
+        x
+      </button>
+      <div className="plan-content">
+        <h3>{plan.planName}</h3>
+        <img src={image} />
+        <Link className="viewPlan-Link" to={`/plans/${plan._id}`}>
+          <div className="button">View Plan</div>
+        </Link>
+      </div>
       {planToDelete && (
-        <div>
-          <p>Are you sure you want to delete this plan?</p>
-          <button onClick={handleConfirmDeletePlan}>Yes</button>
-          <button onClick={handleCancelDeletePlan}>No</button>
+        <div className="delete-confirmation">
+          <p>Delete Plan?</p>
+          <div className="deleteCconfirmation-buttons">
+            <button
+              className="confirm-button"
+              onClick={handleConfirmDeletePlan}
+            >
+              Delete
+            </button>
+            <button className="cancel-button" onClick={handleCancelDeletePlan}>
+              Cancel
+            </button>
+          </div>
         </div>
       )}
     </div>

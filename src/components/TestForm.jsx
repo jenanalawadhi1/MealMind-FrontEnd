@@ -12,7 +12,7 @@ const TestForm = ({
   handleUnitChange,
   handleNext,
   handleBack,
-  handleDone,
+  handleDone
 }) => {
   const currentQuestion = questions[currentQuestionIndex]
 
@@ -121,16 +121,28 @@ const TestForm = ({
       )}
       <div className="buttons">
         {currentQuestionIndex > 0 && (
-          <button type="button" onClick={handleBack}>
+          <button
+            className="testForm-button"
+            type="button"
+            onClick={handleBack}
+          >
             Back
           </button>
         )}
         {currentQuestionIndex < questions.length - 1 ? (
-          <button type="button" onClick={handleNext}>
+          <button
+            className="testForm-button"
+            type="button"
+            onClick={handleNext}
+          >
             Next
           </button>
         ) : (
-          <button type="button" onClick={handleDone}>
+          <button
+            className="testForm-button"
+            type="button"
+            onClick={handleDone}
+          >
             Done
           </button>
         )}

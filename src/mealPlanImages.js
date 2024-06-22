@@ -1,4 +1,4 @@
-const mealPlanImg = [
+const planImages = [
   'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/1640768/pexels-photo-1640768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/936611/pexels-photo-936611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -27,4 +27,4 @@ const mealPlanImg = [
   'https://cdn.shopify.com/s/files/1/0088/2517/6123/files/Understanding_Leaky_Gut_and_the_Role_of_Diet_in_Healing_1024x1024.jpg?v=1692345584'
 ]
 
-export default mealPlanImg
+export default planImages
