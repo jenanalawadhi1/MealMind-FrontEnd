@@ -31,8 +31,10 @@ const Home = ({ user }) => {
     <div className="home-guest">
       <div>
         <h1 className="home-text">Let's Begin Your Diet Planning</h1>
-        <p>Choose what's good for you</p>
+
+        <p id="home-text">Choose what's good for you</p>
         <button className="button home-button" onClick={() => navigate('/login')}>
+
           Get Started
         </button>
       </div>
