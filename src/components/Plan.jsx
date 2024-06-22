@@ -42,7 +42,7 @@ const Plan = ({ plan, onDelete, image }) => {
       </div>
       {planToDelete && (
         <div className="delete-confirmation">
-          <p>Delete Plan?</p>
+          <p>Delete Plan? <br/> Posts Will Be Deleted Too</p>
           <div className="deleteCconfirmation-buttons">
             <button
               className="confirm-button"

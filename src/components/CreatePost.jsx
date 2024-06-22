@@ -6,7 +6,7 @@ import UserPost from '../components/UserPost'
 // ShowPlan is the parent
 const CreatePost = ({ planId, userId }) => {
   const { id } = useParams() //plan id
-  const [posts, setPosts] = useState(null)
+  const [posts, setPosts] = useState([])
   const [formValues, setFormValues] = useState({
     title: '',
     caption: ''
@@ -64,7 +64,7 @@ const CreatePost = ({ planId, userId }) => {
         />
         <button>Post</button>
       </form>
-      {posts && (
+      {posts.length !== 0 && (
         <div>
           <h1>Previous Posts</h1>
           {posts.map((post) => (

@@ -12,28 +12,44 @@ const Nav = ({ user, handleLogOut }) => {
       </NavLink>
 
       <div className="nav-links">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/" end>
+          Home
+        </NavLink>
+        <NavLink to="/about" end>
+          About
+        </NavLink>
         {user ? (
           <>
-            <NavLink to="/plans/new">Start Plan</NavLink>
-            <NavLink to="/plans">My Plans</NavLink>
-            <Link onClick={handleLogOut} to="/">
-              Log Out
-            </Link>
+            <NavLink to="/plans/new" end>
+              Start Plan
+            </NavLink>
+            <NavLink to="/plans" end>
+              My Plans
+            </NavLink>
           </>
         ) : (
-          <>
-            <Link to="/login">Start Plan</Link>
-            <NavLink id="register" to="/register">
-              Register
-            </NavLink>
-            <NavLink id="login" to="/login">
-              Login
-            </NavLink>
-          </>
+          <Link to="/login" end>
+            Start Plan
+          </Link>
         )}
       </div>
+
+      {user ? (
+        <div className="nav-links">
+          <Link id='logout' onClick={handleLogOut} to="/">
+          <span id="welcoming">Welcome {user.firstName}</span>
+          </Link>
+        </div>
+      ) : (
+        <div className="nav-links">
+          <NavLink id="register" to="/register" end>
+            Register
+          </NavLink>
+          <NavLink id="login" to="/login" end>
+            Login
+          </NavLink>
+        </div>
+      )}
     </header>
   )
 }
