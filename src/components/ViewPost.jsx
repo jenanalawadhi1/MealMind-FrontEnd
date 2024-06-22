@@ -92,13 +92,13 @@ const ViewPost = ({ user }) => {
       <h3 >{post.title}</h3>
       <p id="caption">{post.caption}</p>
       <div>
-        <input
+        <input id="addingComment"
           type="text"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Add a comment"
         />
-        <button onClick={handleAddComment}>Add Comment</button>
+        <button id="commentBtn"onClick={handleAddComment}>Add Comment</button>
       </div>
       <details>
         <summary className="comments">Comments</summary>

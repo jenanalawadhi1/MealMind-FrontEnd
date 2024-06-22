@@ -331,7 +331,8 @@ a {
   justify-content: center;
   gap: 10px;
 }
-.delete-confirmation .confirm-button {
+.delete-confirmation .confirm-button,
+#commentBtn {
   background-image: linear-gradient(to right, #ec539a, #f12a448c);
   color: #f8eded;
 }
@@ -369,6 +370,12 @@ a {
   padding: 5%;
   font-family: 'Caudex', serif;
   font-size: 18px;
+  color: #f12a44c2;
+  font-weight: 700;
+}
+#addingComment {
+  font-family: 'Caudex', serif;
+  font-size: 20px;
   color: #f12a44c2;
   font-weight: 700;
 }
