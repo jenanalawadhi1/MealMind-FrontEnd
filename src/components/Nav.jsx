@@ -37,7 +37,7 @@ const Nav = ({ user, handleLogOut }) => {
       {user ? (
         <div className="nav-links">
           <Link id='logout' onClick={handleLogOut} to="/">
-          <span>Welcome {user.firstName}</span>
+          <span id="welcoming">Welcome {user.firstName}</span>
           </Link>
         </div>
       ) : (
