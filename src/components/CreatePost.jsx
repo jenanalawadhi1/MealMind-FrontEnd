@@ -45,8 +45,8 @@ const CreatePost = ({ planId, userId }) => {
 
   return (
     <>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
+      <form className="post-form" onSubmit={(e) => handleSubmit(e)}>
+        <input id="addingComment"
           onChange={handleChange}
           name="title"
           value={formValues.title}
@@ -54,7 +54,7 @@ const CreatePost = ({ planId, userId }) => {
           placeholder="Title"
           required
         />
-        <input
+        <input id="addingComment"
           onChange={handleChange}
           name="caption"
           value={formValues.caption}
@@ -62,7 +62,7 @@ const CreatePost = ({ planId, userId }) => {
           placeholder="Caption"
           required
         />
-        <button>Post</button>
+        <button id="commentBtn">Post</button>
       </form>
       {posts.length !== 0 && (
         <div>
