@@ -84,7 +84,7 @@ const ViewPost = ({ user }) => {
   }, [id])
 
   return post ? (
-    <div>
+    <div className='post'>
       <h3>Published By {post.user.firstName}</h3>
       <Link className="viewPlan-Link" to={`/plans/${post.plan}`}>
         <div className="button">View The Plan</div>

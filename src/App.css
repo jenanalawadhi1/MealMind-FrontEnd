@@ -1,9 +1,9 @@
 body {
   height: 100%;
-  margin: 0;
-  display: flex;
+  margin: 0 auto;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   background-image: url('../images/background.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,8 +13,17 @@ body {
   font-weight: 300;
   color: #462d26;
 }
+.main{
+  min-width: 100vw;
+}
 
 /* navbar */
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
 .nav-links {
   height: 20%;
   text-align: center;
@@ -24,6 +33,7 @@ body {
 }
 .logo-img {
   height: 77px;
+  float: center;
 }
 .nav-links a {
   margin-left: 25px;
@@ -37,9 +47,14 @@ body {
 header a.active {
   color: #fa6f97;
 }
-
 .nav-links a:hover {
   color: #ed7899;
+}
+#logout:hover span {
+  display: none
+}
+#logout:hover:before {
+  content: "Logout"
 }
 
 /*about page*/
@@ -71,6 +86,7 @@ header a.active {
 
 /* login form */
 .login .card-overlay {
+  margin: 0 auto;
   width: 500px;
   background: transparent;
   border: 2px solid #ff1f88;
@@ -112,11 +128,11 @@ header a.active {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 50%;
+  width: 30%;
   max-width: 600px;
   min-width: 300px;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 form {
@@ -249,6 +265,16 @@ button[type='submit']:hover {
   max-width: 125%;
   height: 195px;
 }
+.no-plans{
+  width: 80%;
+  margin: 10% auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.no-plans img{
+  width: 40%
+}
 
 .viewPlan-Link,
 .createPlan-Link {
@@ -269,6 +295,9 @@ button[type='submit']:hover {
 .button:hover {
   cursor: pointer;
   background-color: #b44b83;
+}
+a{
+  text-decoration: none;
 }
 .delete-button {
   position: absolute;
@@ -293,6 +322,7 @@ button[type='submit']:hover {
   border: 1px solid #ddd;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  text-align: center;
 }
 .delete-confirmation p {
   margin-bottom: 20px;
@@ -336,7 +366,13 @@ button[type='submit']:hover {
   background-color: #f9f9f98b;
   padding: 5%;
 }
-
+.post{
+  max-width: 50%;
+  margin: 0 auto;
+}
+.post .button {
+  padding: 2% 10%;
+}
 .home-guest {
   display: flex;
   justify-content: space-around;
@@ -359,8 +395,17 @@ button[type='submit']:hover {
   font-weight: 700;
   font-style: normal;
 }
+.home-button{
+  border-radius: 25px;
+  padding: 2% 5%;
+}
+.post-button{
+  margin: 0 30%;
+  padding: 2% 5%;
+}
+
 .plan {
-  max-width: 800px;
+  max-width: 50%;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
