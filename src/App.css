@@ -15,7 +15,16 @@ body {
 }
 
 /* navbar */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
 .nav-links {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
   height: 20%;
   text-align: center;
   font-size: 50px;
@@ -26,10 +35,10 @@ body {
   height: 77px;
 }
 .nav-links a {
-  margin-left: 25px;
+  margin: 0 20px;
   text-decoration: none;
   text-align: center;
-  color: #333;
+  color: #462d26;
   font-size: 20px;
   font-weight: bold;
   float: center;
@@ -65,7 +74,7 @@ header a.active {
   max-width: 80%;
 }
 #about-img {
-  max-width: 40%;
+  max-width: 35%;
   height: auto;
 }
 
@@ -100,12 +109,15 @@ header a.active {
 #haveAccount,
 #loginAccount {
   text-align: center;
-  color: #333;
+  color: #603030;
   font-size: 20px;
   font-weight: bold;
 }
-#loginAccount a:hover {
-  color: #ff6b6b;
+#loginAccount {
+  color: #fa6f97;
+}
+#loginAccount:hover {
+  color: #f07fa1d4;
 }
 .form-container {
   background-image: linear-gradient(to right, #fa8b8b83, #ed477960);
