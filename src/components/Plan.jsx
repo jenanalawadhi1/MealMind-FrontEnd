@@ -41,10 +41,19 @@ const Plan = ({ plan, onDelete, image }) => {
         </Link>
       </div>
       {planToDelete && (
-        <div>
-          <p>Are you sure you want to delete this plan?</p>
-          <button onClick={handleConfirmDeletePlan}>Yes</button>
-          <button onClick={handleCancelDeletePlan}>No</button>
+        <div className="delete-confirmation">
+          <p>Delete Plan?</p>
+          <div className="deleteCconfirmation-buttons">
+            <button
+              className="confirm-button"
+              onClick={handleConfirmDeletePlan}
+            >
+              Delete
+            </button>
+            <button className="cancel-button" onClick={handleCancelDeletePlan}>
+              Cancel
+            </button>
+          </div>
         </div>
       )}
     </div>
