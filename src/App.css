@@ -1,5 +1,10 @@
+html, body, #root, #root>div {
+  min-height: 100vh
+}
+
 body {
-  height: 100%;
+  /* min-height: 100vh; */
+  min-width: 100vw;
   margin: 0 auto;
   /* display: flex;
   justify-content: center;
@@ -13,13 +18,30 @@ body {
   font-weight: 300;
   color: #462d26;
 }
-.main{
+
+.dark{
+  background-image: url('../images/dark-background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #f8eded;
+}
+.dark .nav-links a, .dark .plan p, .dark #haveAccount, .dark  #loginAccount{
+  color: #f8eded;
+}
+.dark .post-header, .dark label{
+  color: #462d26;
+}
+
+.main {
   min-width: 100vw;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 /* navbar */
-header{
-  width: 100%;
+header {
+  width: 90%;
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
@@ -44,17 +66,20 @@ header{
   font-weight: bold;
   float: center;
 }
-header a.active {
+header a.active, .dark header a.active {
   color: #fa6f97;
 }
 .nav-links a:hover {
   color: #ed7899;
 }
 #logout:hover span {
-  display: none
+  display: none;
 }
 #logout:hover:before {
-  content: "Logout"
+  content: 'Logout';
+}
+.theme-icon svg{
+  width: 20%
 }
 
 /*about page*/
@@ -63,7 +88,7 @@ header a.active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem;
+  padding: 4rem 4rem 0 4rem;
 }
 #about h1 {
   font-size: 3rem;
@@ -95,7 +120,8 @@ header a.active {
   color: #ff1f88;
   font-size: 20px;
   border-radius: 10px;
-  padding: 30px 40px;
+  /* padding: 30px 40px; */
+  padding: 10%
 }
 
 .login .input-wrapper input {
@@ -225,7 +251,7 @@ button[type='submit']:hover {
   margin: auto;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  margin: 10%;
+  padding: 10%;
 }
 
 .feed-post,
@@ -265,15 +291,15 @@ button[type='submit']:hover {
   max-width: 125%;
   height: 195px;
 }
-.no-plans{
+.no-plans {
   width: 80%;
   margin: 10% auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.no-plans img{
-  width: 40%
+.no-plans img {
+  width: 40%;
 }
 
 .viewPlan-Link,
@@ -295,7 +321,7 @@ button[type='submit']:hover {
   cursor: pointer;
   background-color: #b44b83;
 }
-a{
+a {
   text-decoration: none;
 }
 .delete-button {
@@ -365,7 +391,7 @@ a{
   background-color: #f9f9f98b;
   padding: 5%;
 }
-.post{
+.post {
   max-width: 50%;
   margin: 0 auto;
 }
@@ -376,18 +402,18 @@ a{
   /* font-family: 'Rozha One', serif; */
   display: flex;
   justify-content: space-around;
-  margin: 10%;
+  padding: 10%;
 }
 .home-text {
   font-family: 'Caudex', serif;
   font-weight: 700;
   font-style: normal;
 }
-.home-button{
+.home-button {
   border-radius: 25px;
   padding: 2% 5%;
 }
-.post-button{
+.post-button {
   margin: 0 30%;
   padding: 2% 5%;
 }

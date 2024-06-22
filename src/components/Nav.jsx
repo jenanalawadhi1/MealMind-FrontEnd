@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom'
+import { FiSun, FiMoon } from 'react-icons/fi'
 
-const Nav = ({ user, handleLogOut }) => {
+const Nav = ({ user, handleLogOut, theme, toggleTheme }) => {
   return (
     <header>
       <NavLink to="/">
@@ -36,9 +37,12 @@ const Nav = ({ user, handleLogOut }) => {
 
       {user ? (
         <div className="nav-links">
-          <Link id='logout' onClick={handleLogOut} to="/">
-          <span>Welcome {user.firstName}</span>
+          <Link id="logout" onClick={handleLogOut} to="/">
+            <span>Welcome {user.firstName}</span>
           </Link>
+          <div className='theme-icon' onClick={toggleTheme}>
+            {theme === 'light' ? <FiMoon /> : <FiSun />}
+          </div>
         </div>
       ) : (
         <div className="nav-links">
@@ -48,6 +52,9 @@ const Nav = ({ user, handleLogOut }) => {
           <NavLink id="login" to="/login" end>
             Login
           </NavLink>
+          <div className='theme-icon' onClick={toggleTheme}>
+            {theme === 'light' ? <FiMoon /> : <FiSun />}
+          </div>
         </div>
       )}
     </header>
