@@ -107,7 +107,7 @@ const ViewPost = ({ user }) => {
             <div className="user">
               <img
                 className="avatar"
-                src="../../images/avatar1.png"
+                src="https://www7.0zz0.com/2024/06/22/10/905708374.png"
                 alt="avatar"
               />
               {comment.user.firstName}

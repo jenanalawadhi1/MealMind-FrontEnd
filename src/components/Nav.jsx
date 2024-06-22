@@ -7,7 +7,7 @@ const Nav = ({ user, handleLogOut }) => {
         <img
           className="logo-img"
           alt="logo"
-          src="https://www12.0zz0.com/2024/06/20/08/156194360.png"
+          src="https://www12.0zz0.com/2024/06/22/10/492783718.png"
         />
       </NavLink>
 
