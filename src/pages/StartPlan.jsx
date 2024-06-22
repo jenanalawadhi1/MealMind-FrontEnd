@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import questions from '../../questions'
+import questions from '../questions'
 import TestForm from '../components/TestForm'
 import { CreateNewPlan } from '../services/MealPlanServices'
 
