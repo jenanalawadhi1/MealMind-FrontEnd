@@ -26,7 +26,7 @@ body {
   background-attachment: fixed;
   color: #f8eded;
 }
-.dark .nav-links a, .dark .plan p, .dark #haveAccount, .dark  #loginAccount{
+.dark .nav-links a, .dark .plan p, .dark #haveAccount, .dark  #loginAccount, .dark .plan h1{
   color: #f8eded;
 }
 .dark .post-header, .dark label{
@@ -418,6 +418,11 @@ a {
 }
 #caption {
   font-weight: 600;
+}
+.post-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .post {
   max-width: 50%;
