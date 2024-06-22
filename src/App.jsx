@@ -14,6 +14,11 @@ import Register from './components/Register'
 
 const App = () => {
   const [user, setUser] = useState(null)
+  const [theme, setTheme] = useState('light')
+
+  const toggleTheme = () =>{
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
+  }
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -35,8 +40,8 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <Nav user={user} handleLogOut={handleLogOut} />
+    <div className={theme}>
+      <Nav user={user} handleLogOut={handleLogOut} theme={theme} toggleTheme={toggleTheme}/>
       <main>
         <Routes>
           <Route path="/about" element={<About />} />
