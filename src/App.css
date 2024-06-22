@@ -44,9 +44,11 @@ header {
   width: 90%;
   display: flex;
   justify-content: space-between;
-  padding: 0 5%;
 }
 .nav-links {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
   height: 20%;
   text-align: center;
   font-size: 50px;
@@ -58,10 +60,10 @@ header {
   float: center;
 }
 .nav-links a {
-  margin-left: 25px;
+  margin: 0 20px;
   text-decoration: none;
   text-align: center;
-  color: #333;
+  color: #462d26;
   font-size: 20px;
   font-weight: bold;
   float: center;
@@ -73,6 +75,7 @@ header a.active, .dark header a.active {
   color: #ed7899;
 }
 #logout:hover span {
+  display: none;
   display: none;
 }
 #logout:hover:before {
@@ -105,7 +108,7 @@ header a.active, .dark header a.active {
   max-width: 80%;
 }
 #about-img {
-  max-width: 40%;
+  max-width: 35%;
   height: auto;
 }
 
@@ -142,12 +145,15 @@ header a.active, .dark header a.active {
 #haveAccount,
 #loginAccount {
   text-align: center;
-  color: #333;
+  color: #603030;
   font-size: 20px;
   font-weight: bold;
 }
-#loginAccount a:hover {
-  color: #ff6b6b;
+#loginAccount {
+  color: #fa6f97;
+}
+#loginAccount:hover {
+  color: #f07fa1d4;
 }
 .form-container {
   background-image: linear-gradient(to right, #fa8b8b83, #ed477960);
@@ -285,6 +291,7 @@ button[type='submit']:hover {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  font-weight: 500;
 }
 
 .plan-content img {
@@ -312,6 +319,7 @@ button[type='submit']:hover {
     rgba(237, 167, 215, 0.66),
     rgba(237, 71, 121, 0.67)
   );
+  font-size: 17.5px;
   padding: 5% 20%;
   text-align: center;
   color: #f8eded;
@@ -357,7 +365,8 @@ a {
   justify-content: center;
   gap: 10px;
 }
-.delete-confirmation .confirm-button {
+.delete-confirmation .confirm-button,
+#commentBtn {
   background-image: linear-gradient(to right, #ec539a, #f12a448c);
   color: #f8eded;
 }
@@ -376,6 +385,9 @@ a {
 .comments {
   margin-top: 5%;
   margin-bottom: 5%;
+  font-size: 20px;
+  color: #f12a44c2;
+  font-weight: 700;
 }
 .avatar {
   width: 5%;
@@ -387,9 +399,22 @@ a {
   align-items: center;
 }
 .comment {
-  margin-bottom: 5%;
+  margin-top: 5%;
   background-color: #f9f9f98b;
   padding: 5%;
+  font-family: 'Caudex', serif;
+  font-size: 18px;
+  color: #f12a44c2;
+  font-weight: 700;
+}
+#addingComment {
+  font-family: 'Caudex', serif;
+  font-size: 20px;
+  color: #f12a44c2;
+  font-weight: 700;
+}
+#caption {
+  font-weight: 600;
 }
 .post {
   max-width: 50%;
@@ -399,13 +424,24 @@ a {
   padding: 2% 10%;
 }
 .home-guest {
-  /* font-family: 'Rozha One', serif; */
   display: flex;
   justify-content: space-around;
   padding: 10%;
 }
 .home-text {
   font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-style: normal;
+}
+#home-text {
+  font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-style: normal;
+}
+#startPlan {
+  font-family: 'Caudex', serif;
+  font-size: 30px;
+  color: #333;
   font-weight: 700;
   font-style: normal;
 }
@@ -428,7 +464,7 @@ a {
 
 .plan h1 {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #333;
 }
 
@@ -441,6 +477,7 @@ a {
 .plan p {
   margin-bottom: 5px;
   color: #666;
+  font-weight: 600;
 }
 
 .plan details {
@@ -448,6 +485,7 @@ a {
   margin-bottom: 15px;
   border: 5px solid #fddaed;
   border-radius: 4px;
+  font-weight: 600;
 }
 
 .plan details summary {

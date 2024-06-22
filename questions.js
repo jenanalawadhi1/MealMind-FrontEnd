@@ -52,7 +52,7 @@ const questions = [
     content:
       'Do you have any medical conditions we should consider? (Check all that apply)',
     options: [
-      'High blood pressure',
+      'None',
       'Diabetes',
       'Food allergies',
       'Digestive disorders',

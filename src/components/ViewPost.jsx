@@ -89,16 +89,16 @@ const ViewPost = ({ user }) => {
       <Link className="viewPlan-Link" to={`/plans/${post.plan}`}>
         <div className="button">View The Plan</div>
       </Link>
-      <h3>{post.title}</h3>
-      <p>{post.caption}</p>
+      <h3 >{post.title}</h3>
+      <p id="caption">{post.caption}</p>
       <div>
-        <input
+        <input id="addingComment"
           type="text"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Add a comment"
         />
-        <button onClick={handleAddComment}>Add Comment</button>
+        <button id="commentBtn"onClick={handleAddComment}>Add Comment</button>
       </div>
       <details>
         <summary className="comments">Comments</summary>
@@ -107,7 +107,7 @@ const ViewPost = ({ user }) => {
             <div className="user">
               <img
                 className="avatar"
-                src="../../images/avatar1.png"
+                src="https://www7.0zz0.com/2024/06/22/10/905708374.png"
                 alt="avatar"
               />
               {comment.user.firstName}

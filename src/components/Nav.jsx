@@ -8,7 +8,7 @@ const Nav = ({ user, handleLogOut, theme, toggleTheme }) => {
         <img
           className="logo-img"
           alt="logo"
-          src="https://www12.0zz0.com/2024/06/20/08/156194360.png"
+          src="https://www12.0zz0.com/2024/06/22/10/492783718.png"
         />
       </NavLink>
 
@@ -37,8 +37,8 @@ const Nav = ({ user, handleLogOut, theme, toggleTheme }) => {
 
       {user ? (
         <div className="nav-links">
-          <Link id="logout" onClick={handleLogOut} to="/">
-            <span>Welcome {user.firstName}</span>
+          <Link id='logout' onClick={handleLogOut} to="/">
+          <span id="welcoming">Welcome {user.firstName}</span>
           </Link>
           <div className='theme-icon' onClick={toggleTheme}>
             {theme === 'light' ? <FiMoon /> : <FiSun />}

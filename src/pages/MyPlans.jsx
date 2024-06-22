@@ -28,9 +28,10 @@ const MyPlans = ({ user }) => {
   return (
     <>
       {plans.length === 0 ? (
+
         <div className="no-plans">
           <div>
-            <p>No Plans Yet! Start a new meal plan</p>
+          <p id="startPlan">No Plans Yet! Start a new meal plan</p>
             <Link to="/plans/new">
               <div className="button">Create New Plan</div>
             </Link>
@@ -39,6 +40,7 @@ const MyPlans = ({ user }) => {
             src="../../images/Eating healthy food-pana.svg"
             alt="Girl Eating Healthy Food"
           />
+
         </div>
       ) : (
         <div className="feed">
