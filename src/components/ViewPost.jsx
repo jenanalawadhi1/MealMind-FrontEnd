@@ -89,8 +89,8 @@ const ViewPost = ({ user }) => {
       <Link className="viewPlan-Link" to={`/plans/${post.plan}`}>
         <div className="button">View The Plan</div>
       </Link>
-      <h3>{post.title}</h3>
-      <p>{post.caption}</p>
+      <h3 >{post.title}</h3>
+      <p id="caption">{post.caption}</p>
       <div>
         <input
           type="text"
