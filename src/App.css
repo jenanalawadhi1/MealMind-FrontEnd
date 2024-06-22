@@ -208,7 +208,7 @@ button[type='submit']:hover {
 .feed {
   margin: auto;
   display: grid;
-  /* grid-template-columns: 33% 33% 33%; */
+  grid-template-columns: 33% 33% 33%;
   margin: 10%;
 }
 
