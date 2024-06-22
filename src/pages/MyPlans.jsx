@@ -44,7 +44,7 @@ const MyPlans = ({ user }) => {
     <div className="feed">
       {plans.length === 0 ? (
         <div>
-          <p>No Plans Yet! Start a new meal plan</p>
+          <p id="startPlan">No Plans Yet! Start a new meal plan</p>
           <Link className="createPlan-Link" to="/plans/new">
             <div className="button">Create New Plan</div>
           </Link>

@@ -208,7 +208,7 @@ button[type='submit']:hover {
 .feed {
   margin: auto;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  /* grid-template-columns: 33% 33% 33%; */
   margin: 10%;
 }
 
@@ -260,6 +260,7 @@ button[type='submit']:hover {
     rgba(237, 167, 215, 0.66),
     rgba(237, 71, 121, 0.67)
   );
+  font-size: 17.5px ;
   padding: 5% 20%;
   text-align: center;
   color: #f8eded;
@@ -337,13 +338,24 @@ button[type='submit']:hover {
 }
 
 .home-guest {
-  /* font-family: 'Rozha One', serif; */
   display: flex;
   justify-content: space-around;
   margin: 10%;
 }
 .home-text {
   font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-style: normal;
+}
+#home-text {
+  font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-style: normal;
+}
+#startPlan{
+  font-family: 'Caudex', serif;
+  font-size: 30px;
+  color:#333;
   font-weight: 700;
   font-style: normal;
 }
