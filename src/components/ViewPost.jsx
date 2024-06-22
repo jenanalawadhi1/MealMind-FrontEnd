@@ -84,21 +84,24 @@ const ViewPost = ({ user }) => {
   }, [id])
 
   return post ? (
-    <div className='post'>
+    <div className="post">
       <h3>Published By {post.user.firstName}</h3>
       <Link className="viewPlan-Link" to={`/plans/${post.plan}`}>
         <div className="button">View The Plan</div>
       </Link>
-      <h3 >{post.title}</h3>
+      <h3>{post.title}</h3>
       <p id="caption">{post.caption}</p>
       <div>
-        <input id="addingComment"
+        <input
+          id="addingComment"
           type="text"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Add a comment"
         />
-        <button id="commentBtn"onClick={handleAddComment}>Add Comment</button>
+        <button id="commentBtn" onClick={handleAddComment}>
+          Add Comment
+        </button>
       </div>
       <details>
         <summary className="comments">Comments</summary>
