@@ -331,7 +331,8 @@ a {
   justify-content: center;
   gap: 10px;
 }
-.delete-confirmation .confirm-button {
+.delete-confirmation .confirm-button,
+#commentBtn {
   background-image: linear-gradient(to right, #ec539a, #f12a448c);
   color: #f8eded;
 }
@@ -350,6 +351,9 @@ a {
 .comments {
   margin-top: 5%;
   margin-bottom: 5%;
+  font-size: 20px;
+  color: #f12a44c2;
+  font-weight: 700;
 }
 .avatar {
   width: 5%;
@@ -364,6 +368,19 @@ a {
   margin-bottom: 5%;
   background-color: #f9f9f98b;
   padding: 5%;
+  font-family: 'Caudex', serif;
+  font-size: 18px;
+  color: #f12a44c2;
+  font-weight: 700;
+}
+#addingComment {
+  font-family: 'Caudex', serif;
+  font-size: 20px;
+  color: #f12a44c2;
+  font-weight: 700;
+}
+#caption {
+  font-weight: 600;
 }
 .post {
   max-width: 50%;
