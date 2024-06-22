@@ -8,10 +8,13 @@ const MyPlans = ({ user }) => {
   const [plans, setPlans] = useState([])
   const [images, setImages] = useState([])
 
-  const uploadRandomImg = () => {
-    let randIdx = Math.floor(Math.random() * planImages.length)
+  const uploadRandomImg = (length) => {
     let arr = [...images]
-    arr.push(planImages[randIdx])
+    for (let i = 0; i < length; i++) {
+      let randIdx = Math.floor(Math.random() * planImages.length)
+
+      arr.push(planImages[randIdx])
+    }
     setImages(arr)
   }
 
@@ -21,9 +24,8 @@ const MyPlans = ({ user }) => {
         if (user) {
           const plans = await GetMyPlans(user.id)
           setPlans(plans)
-          for (let i = 0; i < plans.length; i++) {
-            uploadRandomImg()
-          }
+
+          uploadRandomImg(plans.length)
         }
       } catch (error) {
         console.error('Error getting user plans:', error)
