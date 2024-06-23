@@ -1,30 +1,20 @@
 const planImages = [
   'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/1640768/pexels-photo-1640768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/936611/pexels-photo-936611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/1171170/pexels-photo-1171170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/1099681/pexels-photo-1099681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/1152237/pexels-photo-1152237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/2862154/pexels-photo-2862154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://cdn.pixabay.com/photo/2020/11/04/13/29/cereal-5712343_1280.jpg',
   'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/3118421/pexels-photo-3118421.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/1640768/pexels-photo-1640768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/992822/pexels-photo-992822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1572357176061-7c96fd2af22f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVhbHR5JTIwZm9vZHxlbnwwfHwwfHx8MA%3D%3D',
-  'https://d53l9d6fqlxs2.cloudfront.net/photos/6631-vegetarianpng.png.383x305_q80_crop-smart_upscale.png',
-  'https://theceliacmd.com/wp-content/uploads/2022/12/low-histamine-foods.jpg',
-  'https://www.publicdomainpictures.net/pictures/540000/nahled/healthy-salad-on-the-table-1695373228YmP.jpg',
-  'https://img.freepik.com/free-photo/diet-menu-healthy-salad-fresh-vegetables-tomatoes-egg-onion-healthy-meal-concept_1150-37837.jpg?t=st=1718801109~exp=1718804709~hmac=d7a9aca9ecc36ac45afd27889d2b1285a2c4b8e2615a6f01c47ecab240ef3b6c&w=360',
+  'https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://img.freepik.com/premium-photo/overhead-view-fresh-vegetable-basket_1124848-8518.jpg?w=900',
   'https://img.freepik.com/premium-photo/healthy-food-balanced-flexitarian-mediterranean-diet-concept_987032-391.jpg?w=900',
   'https://img.freepik.com/premium-photo/grilled-salmon-fillet-fresh-green-vegetable-illustration-ai-generativexa_115919-10379.jpg?w=900',
+  'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   'https://img.freepik.com/premium-photo/healthy-eating-vegetarian-diet-table_961829-8972.jpg?w=1060',
-  'https://cdn.shopify.com/s/files/1/0088/2517/6123/files/Understanding_Leaky_Gut_and_the_Role_of_Diet_in_Healing_1024x1024.jpg?v=1692345584'
+  'https://cdn.shopify.com/s/files/1/0088/2517/6123/files/Understanding_Leaky_Gut_and_the_Role_of_Diet_in_Healing_1024x1024.jpg?v=1692345584',
+  'https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 ]
 
 export default planImages

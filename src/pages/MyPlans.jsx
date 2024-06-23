@@ -12,7 +12,9 @@ const MyPlans = ({ user }) => {
     let arr = [...images]
     for (let i = 0; i < length; i++) {
       let randIdx = Math.floor(Math.random() * mealPlanImages.length)
-      arr.push(mealPlanImages[randIdx])
+      if (!arr.includes(mealPlanImages[randIdx])) {
+        arr.push(mealPlanImages[randIdx])
+      }
     }
     setImages(arr)
   }
