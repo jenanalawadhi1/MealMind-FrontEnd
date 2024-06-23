@@ -50,7 +50,7 @@ const MyPlans = ({ user }) => {
             </Link>
           </div>
           <img
-            src="../../images/Eating healthy food-pana.svg"
+            src="https://www12.0zz0.com/2024/06/23/06/812786570.png"
             alt="Girl Eating Healthy Food"
           />
         </div>
