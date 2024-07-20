@@ -80,6 +80,7 @@ GROQ_API_KEY=<api key for groq>
   <pre>
     <img src="./images/homepage.png" />&nbsp;&nbsp;&nbsp;
     <img src="./images/loginpage.png" />&nbsp;&nbsp;&nbsp;
+    <img src="./images/myplanspage.png" />&nbsp;&nbsp;&nbsp;
     <img src="./images/mealplanpage.png" />&nbsp;&nbsp;&nbsp;
     <img src="./images/postspage.png" />&nbsp;&nbsp;&nbsp;
     <img src="./images/darkmodepage.png" />&nbsp;&nbsp;&nbsp;

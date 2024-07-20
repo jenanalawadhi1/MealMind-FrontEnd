@@ -260,7 +260,7 @@ button[type='submit']:hover {
   margin: auto;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  padding: 10%;
+  padding: 5% 10%;
 }
 
 .feed-post,
