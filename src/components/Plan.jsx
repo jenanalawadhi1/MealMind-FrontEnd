@@ -35,14 +35,16 @@ const Plan = ({ plan, onDelete, image }) => {
       </button>
       <div className="plan-content">
         <h3>{plan.planName}</h3>
-        <img src={image} />
+        <img src={image} alt="Healthy Meal Plan" />
         <Link className="viewPlan-Link" to={`/plans/${plan._id}`}>
           <div className="button">View Plan</div>
         </Link>
       </div>
       {planToDelete && (
         <div className="delete-confirmation">
-          <p>Delete Plan? <br/> Posts Will Be Deleted Too</p>
+          <p>
+            Delete Plan? <br /> Posts Will Be Deleted Too
+          </p>
           <div className="deleteCconfirmation-buttons">
             <button
               className="confirm-button"
